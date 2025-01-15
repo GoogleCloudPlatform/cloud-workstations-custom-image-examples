@@ -27,10 +27,11 @@ RUN apt-get update && apt-get install -y \
     debhelper-compat \
     golang \
     curl && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* && \
+  # install libtinfo5
+  wget http://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb && \
+  apt install ./libtinfo5_6.3-2ubuntu0.1_amd64.deb && \
   git clone https://github.com/google/android-cuttlefish && \
-  /android-cuttlefish/tools/buildutils/build_packages.sh && \
+  /bin/bash -c /android-cuttlefish/tools/buildutils/build_packages.sh && \
   mkdir out && \
   cp /android-cuttlefish/cuttlefish-base_*_*64.deb /out && \
   cp /android-cuttlefish/cuttlefish-user_*_*64.deb /out && \
