@@ -5,7 +5,7 @@ This example installs the requisite tooling to develop applications using Androi
 This example can be built with the included cloudbuild.yaml by specifying substitutions for the image name and optionally the version of Android Studio you would like to install:
 
 ```
-gcloud builds submit --substitutions=_IMAGE_NAME=us-central1-docker.pkg.dev/your-project-id/your-repository/code-oss-aosp,_ANDROID_STUDIO_VERSION=2024.2.2.13
+gcloud builds submit --substitutions=_IMAGE_NAME=us-central1-docker.pkg.dev/your-project-id/your-repository/android-studio,_ANDROID_STUDIO_VERSION=2024.2.2.13
 ```
 
 Or can be built locally using:

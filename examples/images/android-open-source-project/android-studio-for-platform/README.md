@@ -7,7 +7,11 @@ This example installs the requisite tooling to use Android Studio for Platform t
 This example can be built with the included cloudbuild.yaml by specifying substitutions for the image name and Android Studio for Platform release channel:
 
 ```
-gcloud builds submit --substitutions=_IMAGE_NAME=us-central1-docker.pkg.dev/your-project-id/your-repository/code-oss-aosp,ASFP_VERSION=stable
+# Stable build
+gcloud builds submit --substitutions=_IMAGE_NAME=us-central1-docker.pkg.dev/your-project-id/your-repository/android-studio-for-platform-stable,_ASFP_VERSION=stable
+
+# EAP build
+gcloud builds submit --substitutions=_IMAGE_NAME=us-central1-docker.pkg.dev/your-project-id/your-repository/android-studio-for-platform-canary,_ASFP_VERSION=canary
 ```
 
 Or can be built locally using:
