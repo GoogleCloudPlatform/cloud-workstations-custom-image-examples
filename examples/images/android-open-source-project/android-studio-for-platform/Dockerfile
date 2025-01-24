@@ -167,7 +167,6 @@ ARG ASFP_VERSION=canary
 # Install Android Studio for Platform
 RUN \
   if [ $ASFP_VERSION = "canary" ]; then \
-    # TODO: update this as soon as we get the correct package.
     PACKAGE="asfp-canary-current-linux.deb"; \
   else \
     PACKAGE="asfp-current-linux.deb"; \
