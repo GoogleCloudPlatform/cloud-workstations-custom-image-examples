@@ -63,6 +63,60 @@ RUN apt-get update && apt-get install -y \
 # Main container
 FROM us-west1-docker.pkg.dev/cloud-workstations-images/predefined/base
 
+# Install systemd, GNOME, and VNC. Alternatively, you can source the main
+# container build from the image  built using ../../gnome/noVnc/Dockerfile
+# simply install Android Studio for Platform and related tooling.
+
+# Install and configure systemd
+RUN apt-get update && apt-get install -y \
+  systemd && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* &&\
+  ln -s /dev/null /etc/systemd/system/apache2.service && \
+  ln -s /dev/null /etc/systemd/system/getty@tty1.service && \
+  ln -s /dev/null /etc/systemd/system/ldconfig.service && \
+  /sbin/ldconfig -Xv && \
+  ln -s /dev/null /etc/systemd/system/systemd-modules-load.service && \
+  ln -s /dev/null /etc/systemd/system/ssh.socket && \
+  ln -s /dev/null /etc/systemd/system/ssh.service && \
+  echo "d /run/sshd 0755 root root" > /usr/lib/tmpfiles.d/sshd.conf && \
+  echo -e "x /run/docker.socket - - - - -\nx /var/run/docker.socket - - - - -" > /usr/lib/tmpfiles.d/docker.conf
+
+# Install and configure GNOME
+RUN apt-get update && apt-get install -y \
+    gnome-software \
+    gnome-software-common \
+    gnome-software-plugin-snap \
+    libappstream-glib8 && \
+  apt-get install -y \
+    libgd3 && \
+  apt-get install -y \
+    colord \
+    gnome-control-center \
+    gvfs-backends \
+    hplip \
+    libgphoto2-6 \
+    libsane1 \
+    sane-utils \
+    ubuntu-desktop-minimal && \
+  apt-get remove -y gnome-initial-setup && \
+  apt-get remove -y --purge cloud-init && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  chmod -x /usr/lib/ubuntu-release-upgrader/check-new-release-gtk
+
+# Install TigerVNC and noVNC
+COPY --from=novnc-builder /out/noVNC /opt/noVNC
+RUN apt-get update && apt-get install -y \
+    dbus-x11 \
+    tigervnc-common \
+    tigervnc-scraping-server \
+    tigervnc-standalone-server \
+    tigervnc-xorg-extension \
+    python3-numpy  && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
 # Install repo and rsync
 RUN apt-get update && apt-get install -y \
     repo \
@@ -114,68 +168,13 @@ ARG ASFP_VERSION=canary
 RUN \
   if [ $ASFP_VERSION = "canary" ]; then \
     # TODO: update this as soon as we get the correct package.
-    PACKAGE="asfp-dogfood-ai-current-linux.deb"; \
+    PACKAGE="asfp-canary-current-linux.deb"; \
   else \
     PACKAGE="asfp-current-linux.deb"; \
   fi && \
   wget https://dl.google.com/android/asfp/${PACKAGE} && \
   dpkg -i ${PACKAGE} && \
   rm ${PACKAGE}
-
-
-# Install systemd, GNOME, and VNC. Alternatively, you can source the main
-# container build from the image  built using ../../gnome/noVnc/Dockerfile and
-# omit much of the following.
-
-# Install and configure systemd
-RUN apt-get update && apt-get install -y \
-  systemd && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* &&\
-  ln -s /dev/null /etc/systemd/system/apache2.service && \
-  ln -s /dev/null /etc/systemd/system/getty@tty1.service && \
-  ln -s /dev/null /etc/systemd/system/ldconfig.service && \
-  /sbin/ldconfig -Xv && \
-  ln -s /dev/null /etc/systemd/system/systemd-modules-load.service && \
-  ln -s /dev/null /etc/systemd/system/ssh.socket && \
-  ln -s /dev/null /etc/systemd/system/ssh.service && \
-  echo "d /run/sshd 0755 root root" > /usr/lib/tmpfiles.d/sshd.conf && \
-  echo -e "x /run/docker.socket - - - - -\nx /var/run/docker.socket - - - - -" > /usr/lib/tmpfiles.d/docker.conf
-
-# Install and configure GNOME
-RUN apt-get update && apt-get install -y \
-    gnome-software \
-    gnome-software-common \
-    gnome-software-plugin-snap \
-    libappstream-glib8 && \
-  apt-get install -y \
-    libgd3 && \
-  apt-get install -y \
-    colord \
-    gnome-control-center \
-    gvfs-backends \
-    hplip \
-    libgphoto2-6 \
-    libsane1 \
-    sane-utils \
-    ubuntu-desktop-minimal && \
-  apt-get remove -y gnome-initial-setup && \
-  apt-get remove -y --purge cloud-init && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* && \
-  chmod -x /usr/lib/ubuntu-release-upgrader/check-new-release-gtk
-
-# Install TigerVNC and noVNC
-COPY --from=novnc-builder /out/noVNC /opt/noVNC
-RUN apt-get update && apt-get install -y \
-    dbus-x11 \
-    tigervnc-common \
-    tigervnc-scraping-server \
-    tigervnc-standalone-server \
-    tigervnc-xorg-extension \
-    python3-numpy  && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/*
 
 # Additional Tooling
 
