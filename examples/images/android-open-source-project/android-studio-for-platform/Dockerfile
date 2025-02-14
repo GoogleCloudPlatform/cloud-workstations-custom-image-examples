@@ -139,6 +139,7 @@ RUN cd /cuttlefish && \
 
 # Install recommended tooling for AOSP development. List obtained from:
 # https://source.android.com/docs/setup/start
+# libncurses6: to workaround CTS/llvm-rs-cc & older versions depending on libncurses5
 RUN apt-get update && apt-get install -y \
     git-core \
     gnupg \
@@ -156,7 +157,9 @@ RUN apt-get update && apt-get install -y \
     libxml2-utils \
     xsltproc \
     unzip \
-    fontconfig && \
+    fontconfig \
+    libncurses6 && \
+  ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5 && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
