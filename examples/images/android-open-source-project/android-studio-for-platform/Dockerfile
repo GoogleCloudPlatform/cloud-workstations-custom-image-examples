@@ -160,6 +160,7 @@ RUN apt-get update && apt-get install -y \
     fontconfig \
     libncurses6 && \
   ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5 && \
+  ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5 && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
