@@ -24,6 +24,6 @@ steps:
       - 'DOCKER_BUILDKIT=1'
 
 substitutions:
-  _ANDROID_STUDIO_VERSION: "2024.2.2.13"
+  _ANDROID_STUDIO_VERSION: "2024.3.2.6"
 
 images: ['${_IMAGE_NAME}']

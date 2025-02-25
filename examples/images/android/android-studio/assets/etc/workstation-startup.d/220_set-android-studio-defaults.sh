@@ -20,7 +20,10 @@ fi
 
 echo "Writing Android Studio Defaults."
 
-config_dir="${HOME}/.config/Google/AndroidStudio2024.1"
+# Truncate the Android Studio Version set in the Dockerfile to the first two
+# segments (e.g. 2024.2.2.13 -> 2024.2).
+suffix=$(echo "${ANDROID_STUDIO_VERSION}" | cut -d '.' -f 1,2 | paste -sd.)
+config_dir="${HOME}/.config/Google/AndroidStudio${suffix}"
 
 if [[ ! -d "${config_dir}/options" ]]; then
   mkdir -p ${config_dir}/options

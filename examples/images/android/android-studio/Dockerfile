@@ -35,8 +35,10 @@ RUN git clone --quiet --depth 1 --branch $NOVNC_BRANCH https://github.com/novnc/
 # Main container
 FROM us-west1-docker.pkg.dev/cloud-workstations-images/predefined/base
 
-ARG ANDROID_STUDIO_VERSION=2024.2.2.13
+ARG ANDROID_STUDIO_VERSION=2024.3.2.6
 ARG COMMAND_LINE_TOOLS_VERSION=11076708
+
+ENV ANDROID_STUDIO_VERSION=$ANDROID_STUDIO_VERSION
 
 # Install Android Studio
 RUN mkdir -p /opt/google && \
@@ -72,11 +74,11 @@ RUN cd /opt/google/cmdline-tools/bin && \
 # Set default vm options
 RUN echo "-Ddisable.android.first.run=true" >> /opt/google/android-studio/bin/studio64.vmoptions && \
   echo "-Ddisable.config.import=true" >> /opt/google/android-studio/bin/studio64.vmoptions && \
-  echo "-Didea.trust.all.projects=true" >> /opt/google/android-studio/bin/studio64.vmoptions
+  echo "-Didea.trust.all.projects=true" >> /opt/google/android-studio/bin/studio64.vmoptions && \
+  echo "-Duse.gemini.enterprise=true" >> /opt/google/android-studio/bin/studio64.vmoptions
 
 # Enable Gemini in Android Studio
-RUN echo "use.gemini.enterprise=true"  >> /opt/google/android-studio/bin/idea.properties && \
-  echo "studiobot.chat.use.compose.for.ui=false"  >> /opt/google/android-studio/bin/idea.properties
+RUN echo "studiobot.chat.use.compose.for.ui=false"  >> /opt/google/android-studio/bin/idea.properties
 
 # Install systemd, GNOME, and VNC. Alternatively, you can source the main
 # container build from the image  built using ../../gnome/noVnc/Dockerfile and
