@@ -15,10 +15,10 @@ function getSeventyPercentOfMemory() {
 }
 
 vm_memory=$(getSeventyPercentOfMemory)
-if [[ $vm_memory -lt 30000 ]]; then
+if [[ $vm_memory -lt 48000 ]]; then
   sed -i "s/-Xmx20000m/-Xmx${vm_memory}m/" /opt/android-studio-for-platform-canary/bin/studio64.vmoptions
 else
-  sed -i "s/-Xmx20000m/-Xmx30000m/" /opt/android-studio-for-platform-canary/bin/studio64.vmoptions
+  sed -i "s/-Xmx20000m/-Xmx48000m/" /opt/android-studio-for-platform-canary/bin/studio64.vmoptions
 fi
 
 sed -i 's/-Didea.max.intellisense.filesize=999999/-Didea.max.intellisense.filesize=10000/' /opt/android-studio-for-platform-canary/bin/studio64.vmoptions
