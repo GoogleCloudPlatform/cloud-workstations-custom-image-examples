@@ -24,6 +24,9 @@
 CODEBASE_DIR="${HOME}/aaos/vcar"
 LOG="${HOME}/aaos/build-$(date +"%Y%m%d-%I%M%S").log"
 
+# Ensure the directory exists for logging.
+mkdir -p "${HOME}/aaos"
+
 echo "Syncing & building aosp_cf_x86_64_auto-ap4a-userdebug" | tee ${LOG}
 df -h | tee -a ${LOG}
 time /google/scripts/build_aosp.sh -o ${CODEBASE_DIR} \

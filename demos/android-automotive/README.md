@@ -82,14 +82,14 @@ need to be adjusted based on the specific build targets.
 1.  25 min. to download the source code.
 2.  70 min. to build aosp_cf_x86_64_auto-ap4a-userdebug.
 3.  60 min. to build cts.
-4.  ~95 min. to sync and index for the ASfP project.
+4.  70 min. to sync and index for the ASfP project.
     *   The recommended
         [ASfP memory settings](https://developer.android.com/studio/intro/studio-config#adjusting_heap_size)
-        is 48 GB for administrator workstations due to the large codebase.
+        is 64 GB for administrator workstations due to the large codebase.
     *   For example, the vcar project can still be synced and indexed with 30 GB
         of memory, but it will take over 120 minutes and trigger a low memory
         notification.
-    *   The default settings are 48 GB or 70% of free memory for lower-cost
+    *   The default settings are 64 GB or 70% of free memory for lower-cost
         developer workstations, as configured in
         [200_add-asfp-defaults.sh](../../examples/images/android-open-source-project/android-studio-for-platform/assets/etc/workstation-startup.d/200_add-asfp-defaults.sh).
 5.  550 GB is used in the home directory.
