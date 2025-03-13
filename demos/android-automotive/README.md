@@ -27,7 +27,7 @@ their development workflows are reduced significantly. A snapshot and a
 workstation configuration can be created for each development branch and build
 targets according to the need of each development team.
 
-![Administrator Workflows](./resrouce/AdministratorWorkflows.png)
+![Administrator Workflows](./resources/AdministratorWorkflows.png)
 
 ## Prerequisites
 
@@ -143,7 +143,7 @@ Follow these steps:
     *   Click the **Run** icon to
         [test platform code](https://developer.android.com/studio/platform/test).
 
-    ![Running CTS In ASfP](./resrouce/CtsInAsfp.gif)
+    ![Running CTS In ASfP](./resources/CtsInAsfp.gif)
 
 5.  Stop the CVD and clean up:
 
