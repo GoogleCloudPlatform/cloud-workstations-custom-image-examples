@@ -17,7 +17,7 @@
 #######################################################
 # NoVNC Builder Container
 #######################################################
-FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/base as novnc-builder
+FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/base AS novnc-builder
 
 ARG NOVNC_BRANCH=v1.5.0
 ARG WEBSOCKIFY_BRANCH=v0.12.0
