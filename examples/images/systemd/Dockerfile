@@ -25,7 +25,6 @@ RUN sed -i 's/\(^service docker start.*\)/#\1\n\/usr\/bin\/dockerd $DOCKER_OPTS/
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y \
     systemd && \
-  apt-get clean && \
   rm -rf /apt-keys && \
   rm -rf /var/lib/apt/lists/*
 

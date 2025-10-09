@@ -87,7 +87,6 @@ RUN echo "studiobot.chat.use.compose.for.ui=false"  >> /opt/google/android-studi
 # Install and configure systemd
 RUN apt-get update && apt-get install -y \
   systemd && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/* &&\
   ln -s /dev/null /etc/systemd/system/apache2.service && \
   ln -s /dev/null /etc/systemd/system/getty@tty1.service && \
@@ -118,7 +117,6 @@ RUN apt-get update && apt-get install -y \
     ubuntu-desktop-minimal && \
   apt-get remove -y gnome-initial-setup && \
   apt-get remove -y --purge cloud-init && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   chmod -x /usr/lib/ubuntu-release-upgrader/check-new-release-gtk
 
@@ -131,7 +129,6 @@ RUN apt-get update && apt-get install -y \
     tigervnc-standalone-server \
     tigervnc-xorg-extension \
     python3-numpy  && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Additional Tooling
@@ -139,7 +136,6 @@ RUN apt-get update && apt-get install -y \
 # Gnome Terminal.
 RUN apt-get update --yes && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y gnome-terminal && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Install google-chrome

@@ -35,7 +35,6 @@ RUN apt-get update && apt-get install -y \
   mkdir out && \
   cp /android-cuttlefish/cuttlefish-base_*_*64.deb /out && \
   cp /android-cuttlefish/cuttlefish-user_*_*64.deb /out && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 #######################################################
@@ -49,7 +48,6 @@ FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss
 RUN apt-get update && apt-get install -y \
     repo \
     rsync && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   #smoke tests
   repo version && \
@@ -62,7 +60,6 @@ RUN cd /cuttlefish && \
   apt install -y ./cuttlefish-base_*.deb ./cuttlefish-user_*.deb && \
   cd / && \
   rm -rf /cuttlefish && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Install recommended tooling: https://source.android.com/docs/setup/start
@@ -84,7 +81,6 @@ RUN apt-get update && apt-get install -y \
     xsltproc \
     unzip \
     fontconfig && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Install google-chrome
@@ -92,7 +88,6 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
   apt-get update && \
   apt install -y ./google-chrome*.deb && \
   rm google-chrome*.deb && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 ARG EXT_VERSION=0.3.9
