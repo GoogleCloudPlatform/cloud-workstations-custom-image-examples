@@ -18,6 +18,8 @@
 #
 
 if [[ "${EUID:-$(id -u)}" -eq 0 ]]; then
+  # Ensure "user" has sufficient permissions to execute this script
+  chmod o+rx "${BASH_SOURCE[0]}"
   exec runuser user "${BASH_SOURCE[0]}"
 fi
 

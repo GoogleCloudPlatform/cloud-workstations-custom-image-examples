@@ -57,6 +57,10 @@ RUN apt-get update && apt-get install -y \
 
 # Install Cuttlefish from builder
 COPY --from=cuttlefish-builder /out /cuttlefish
+
+# Cuttlefish enables1 docker-specific behavior based on the existence of this file
+RUN touch /.dockerenv
+
 RUN cd /cuttlefish && \
   apt-get update && \
   apt install -y ./cuttlefish-base_*.deb ./cuttlefish-user_*.deb && \
@@ -105,5 +109,8 @@ RUN wget https://open-vsx.org/api/antfu/browse-lite/${EXT_VERSION}/file/antfu.br
 
 # Merge assets into the container.
 COPY ./assets/. /
+
+# Ensure non-root users have sufficient permissions to traverse the workstation startup scripts directory
+RUN chmod o+x /etc /etc/workstation-startup.d
 
 ENTRYPOINT ["/google/scripts/entrypoint.sh"]
