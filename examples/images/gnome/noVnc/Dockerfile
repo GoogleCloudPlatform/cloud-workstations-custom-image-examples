@@ -76,6 +76,7 @@ RUN apt-get update && apt-get install -y \
 COPY --from=novnc-builder /out/noVNC /opt/noVNC
 RUN apt-get update && apt-get install -y \
     dbus-x11 \
+    python3 \
     tigervnc-common \
     tigervnc-scraping-server \
     tigervnc-standalone-server \
