@@ -1,0 +1,77 @@
+# Copyright 2026 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+repos:
+-   repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.2
+    hooks:
+    -   id: gitleaks
+
+-   repo: local
+    hooks:
+    -   id: check-secrets
+        name: Check Secrets
+        entry: ./skills/enforce-standards/scripts/check_secrets.sh
+        language: script
+        pass_filenames: false
+
+    -   id: check-licenses
+        name: Check License Headers
+        entry: ./skills/enforce-standards/scripts/check_licenses.py
+        language: script
+        pass_filenames: false
+
+    -   id: shellcheck
+        name: Bash Linting (Shellcheck)
+        entry: shellcheck
+        args: [-e, SC2153, -e, SC2086, -e, SC2155, -e, SC2001, -e, SC2016, -e, SC2034, -e, SC1083, -e, SC1090, -e, SC2129, -e, SC2140]
+        language: system
+        files: \.(sh|bash)$
+        exclude: "node_modules/|dist/|vendor/|tests/"
+
+    -   id: bats-gnome
+        name: GNOME Unit Tests (Bats)
+        entry: bats examples/images/gnome/tests/unit/
+        language: system
+        pass_filenames: false
+
+    -   id: bats-preflight
+        name: Preflight Unit Tests (Bats)
+        entry: bats examples/preflight/tests/unit/
+        language: system
+        pass_filenames: false
+
+    -   id: bats-skills
+        name: Skills Unit Tests (Bats)
+        entry: bash -c 'for d in skills/*/tests; do if ls "$d"/*.bats > /dev/null 2>&1; then bats "$d"; fi; done'
+        language: system
+        pass_filenames: false
+
+    -   id: pytest-skills
+        name: Skills Unit Tests (Pytest)
+        entry: bash -c 'for d in skills/*/tests; do if ls "$d"/*.py > /dev/null 2>&1; then pytest "$d"; fi; done'
+        language: system
+        pass_filenames: false
+
+    -   id: eslint
+        name: Frontend Linting (ESLint)
+        entry: npm run lint --prefix examples/preflight/web
+        language: system
+        pass_filenames: false
+
+    -   id: jest
+        name: Frontend Tests (Jest)
+        entry: npm run test --prefix examples/preflight/web
+        language: system
+        pass_filenames: false
