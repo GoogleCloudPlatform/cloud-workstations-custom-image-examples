@@ -1,0 +1,5 @@
+*~
+.env
+.gemini/
+.gitseep.yaml
+reports/

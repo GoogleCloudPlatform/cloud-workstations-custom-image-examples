@@ -1,0 +1,50 @@
+# GitSeep: Geological History Percolation Rules (Example)
+#
+# History isn't just a line; it's a geological stack.
+# When we commit, we add a new layer (stratum).
+# Often, a change made at the surface (HEAD) actually belongs deep in a lower stratum.
+# Sometimes, a change made in a lower stratum better belongs to an upper stratum commit.
+#
+# This file defines the "Permeability Rules":
+# Mapping: Bedrock Author Date -> List of owned paths
+#
+# All changes to these paths from other commits will either:
+# 1. Percolate DOWN through intermediate layers to settle into an older Bedrock.
+# 2. Seep UP through intermediate layers to settle into a newer Bedrock.
+#
+# Note: If multiple rules overlap, the most specific (longest) path always wins!
+# The order of rules and the paths in this files does not matter.
+
+# Android Studio for Platform (ASfP)
+"2026-04-14 17:36:44 +0000":
+- examples/images/android-studio-for-platform/
+
+# Antigravity Custom Image
+"2026-04-13 12:24:06 +0000":
+- examples/images/antigravity/
+
+# pre-commit config and context-specific agent instructions
+"2026-04-13 10:06:24 +0000":
+- .env.example
+- .pre-commit-config.yaml
+- examples/images/gnome/AGENTS.md
+- examples/images/gnome/GEMINI.md
+- examples/images/gnome/docs/
+- examples/preflight/AGENTS.md
+- examples/preflight/GEMINI.md
+- examples/preflight/skills/
+
+# Agent instructions, skills
+"2026-04-13 10:05:17 +0000":
+- AGENTS.md
+- GEMINI.md
+- docs/
+- skills/
+
+# GNOME Desktop Layer
+"2026-04-13 10:01:55 +0000":
+- examples/images/gnome/
+
+# Preflight Module
+"2026-04-13 09:51:16 +0000":
+- examples/preflight/
