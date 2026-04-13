@@ -64,7 +64,7 @@ RUN apt-get update && apt-get install -y \
 FROM us-west1-docker.pkg.dev/cloud-workstations-images/predefined/base
 
 # Install systemd, GNOME, and VNC. Alternatively, you can source the main
-# container build from the image  built using ../../gnome/noVnc/Dockerfile
+# container build from the image  built using ../../gnome-novnc/Dockerfile
 # simply install Android Studio for Platform and related tooling.
 
 # Install and configure systemd
