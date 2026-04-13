@@ -1,0 +1,12 @@
+/**
+ * Copyright 2026 Google LLC
+ */
+window.CWS_CONFIG = {
+  connectionId: '${DEFAULT_CLIENT_PROTOCOL}',
+  supportedProtocols: '${SUPPORTED_PROTOCOLS}'.split(','),
+  hostname: '${HOSTNAME}',
+  uplink: '${UPLINK}',
+  serverLang: "@@SERVER_LANG@@",
+  clientIp: "${CLIENT_IP}",
+  timeoutMs: ${TIMEOUT_MS}
+};
