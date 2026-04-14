@@ -16,7 +16,14 @@ apiVersion: skaffold/v3
 kind: Config
 metadata:
   name: android-studio-for-platform
+requires:
+  - path: ../gnome/skaffold.yaml
 build:
   artifacts:
   - image: android-studio-for-platform
     context: .
+    docker:
+      network: cloudbuild
+    requires:
+    - image: gnome
+      alias: BASE_IMAGE

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright 2024 Google LLC
+# Copyright 2024-2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 #
 # This script downloads the Android Open Source Project (AOSP) source code
 # for a specified branch and then builds a chosen device target.
@@ -21,7 +22,7 @@ OUTPUT_DIR="${HOME}/aosp"
 REPO_URL="https://android.googlesource.com/platform/manifest"
 BRANCH="main"
 BUILD_TARGET="aosp_cf_x86_64_phone-trunk_staging-userdebug"
-THREAD_COUNT=$[$(nproc)*49/100]
+THREAD_COUNT=$(( $(nproc) * 49 / 100 ))
 
 if [[ "${EUID:-$(id -u)}" -eq 0 ]]; then
     exec runuser user "${BASH_SOURCE[0]}" "$@"
@@ -58,7 +59,7 @@ function _sync_and_build_repo() {
   local branch="${5}"
 
   mkdir -p "${output_directory}"
-  pushd ${output_directory} > /dev/null 2>&1
+  pushd "${output_directory}" > /dev/null 2>&1 || exit
 
   sudo chown user:user /usr/bin/repo
 
@@ -73,19 +74,20 @@ function _sync_and_build_repo() {
   fi
 
   _info "initializing repo url: ${repo_url}"
-  echo yes | repo init --partial-clone -b ${branch} -u ${repo_url}
+  echo yes | repo init --partial-clone -b "${branch}" -u "${repo_url}"
 
   # TODO: Validate this no longer flakes when using < 50% of available CPUs.
   _info "synchronizing repo using ${repo_threads} threads"
   repo sync -j"${repo_threads}"
 
+  # shellcheck source=/dev/null
   source build/envsetup.sh
   _info "setting build target ${build_target}"
-  lunch ${build_target}
+  lunch "${build_target}"
 
   _info "building."
   m
-  popd > /dev/null 2>&1
+  popd > /dev/null 2>&1 || exit
 }
 
 #######################################
@@ -93,7 +95,7 @@ function _sync_and_build_repo() {
 #######################################
 function _print_usage() {
   (
-    echo "usage: $(basename $0) [OPTIONS]"
+    echo "usage: $(basename "$0") [OPTIONS]"
     echo "  options:"
     echo "    -o --output_dir    Directory to clone / build the source. Defaults to "
     echo "                       \$HOME/aosp."
@@ -114,7 +116,7 @@ function _print_usage() {
 #######################################
 function _cli_errors() {
   echo "Unrecognized argument recieved." 1>&2
-  printUsage
+  _print_usage
   exit 1
 }
 
@@ -123,20 +125,20 @@ function main() {
     case "$arg" in
       -)
         case "$OPTARG" in
-          output_dir) OUTPUT_DIR="${!OPTIND}"; OPTIND=$(( $OPTIND + 1 ));;
+          output_dir) OUTPUT_DIR="${!OPTIND}"; OPTIND=$(( OPTIND + 1 ));;
           output_dir=*) OUTPUT_DIR="${OPTARG#*=}";;
-          repo_url) REPO_URL="${!OPTIND}"; OPTIND=$(( $OPTIND + 1 ));;
+          repo_url) REPO_URL="${!OPTIND}"; OPTIND=$(( OPTIND + 1 ));;
           repo_url=*) REPO_URL="${OPTARG#*=}";;
-          branch) BRANCH="${!OPTIND}"; OPTIND=$(( $OPTIND + 1 ));;
+          branch) BRANCH="${!OPTIND}"; OPTIND=$(( OPTIND + 1 ));;
           branch=*) BRANCH="${OPTARG#*=}";;
-          build_target) BUILD_TARGET="${!OPTIND}"; OPTIND=$(( $OPTIND + 1 ));;
+          build_target) BUILD_TARGET="${!OPTIND}"; OPTIND=$(( OPTIND + 1 ));;
           build_target=*) BUILD_TARGET="${OPTARG#*=}";;
-          thread_count) THREAD_COUNT="${!OPTIND}"; OPTIND=$(( $OPTIND + 1 ));;
+          thread_count) THREAD_COUNT="${!OPTIND}"; OPTIND=$(( OPTIND + 1 ));;
           thread_count=*) THREAD_COUNT="${OPTARG#*=}";;
           help) _print_usage; exit 0;;
           *)
             if [ "$OPTERR" = 1 ] && [ "${OPTSPEC:0:1}" != ":" ]; then
-              cli_errors; exit 1;
+              _cli_errors;
             fi
             ;;
         esac;;
@@ -146,7 +148,7 @@ function main() {
       t) BUILD_TARGET="$OPTARG";;
       c) THREAD_COUNT="$OPTARG";;
       h) _print_usage; exit 0;;
-      *) cli_errors; exit 1;
+      *) _cli_errors;
     esac
   done
 

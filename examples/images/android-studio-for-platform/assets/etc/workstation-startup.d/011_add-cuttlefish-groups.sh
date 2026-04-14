@@ -1,4 +1,6 @@
-# Copyright 2024 Google LLC
+#!/bin/bash
+
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,18 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-options:
-  substitutionOption: MUST_MATCH
-  machineType: 'N1_HIGHCPU_32'
+echo "Setting nested virtualization, cvdnetwork, and render permissions."
 
-steps:
-- id: build-android-studio-for-platform
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--build-arg', 'ASFP_VERSION=${_ASFP_VERSION}', '-t', '${_IMAGE_NAME}', '.']
-  env:
-      - 'DOCKER_BUILDKIT=1'
+if [[ $(getent group kvm) ]]; then
+  usermod -aG kvm user
+fi
 
-substitutions:
-  _ASFP_VERSION: "canary" #specify "stable" to get the latest stable version.
+if [[ $(getent group cvdnetwork) ]]; then
+  usermod -aG cvdnetwork user
+fi
 
-images: ['${_IMAGE_NAME}']
+if [[ $(getent group render) ]]; then
+  usermod -aG render user
+fi
