@@ -54,6 +54,6 @@ The Antigravity layer extends the workstation with enterprise-grade development 
     *   **Agent Skills:** Custom Markdown-based skill instructions for persona adoption and specific workflows.
 *   **Key Features:**
     *   **Native AI Integration:** The **Gemini CLI** is a first-class citizen of the blueprint, providing developers with context-aware, multimodal AI assistance directly in their terminal.
-    *   **Skill Modular System:** Contains specific skills (e.g., `troubleshoot-cws`, `enforce-standards`, `adopt-personas`) that guide AI behavior safely inside the workspace.
+    *   **Skill Modular System:** Contains specific skills (e.g., `troubleshoot-cws`, `enforce-standards`, `persona-swe`) that guide AI behavior safely inside the workspace.
     *   **Automated Traceability & Reporting:** Maintains strict standards for AI-generated code reviews and operational reports (SRE, SEC, etc.).
     *   **Build-time Hooks:** Enables clean, isolated tool installations (`assets/build-hooks.d/`) without dirtying the core desktop OS.

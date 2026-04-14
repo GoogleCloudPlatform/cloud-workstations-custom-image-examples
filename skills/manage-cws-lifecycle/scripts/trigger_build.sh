@@ -21,11 +21,48 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck disable=SC1091
 source "${SCRIPT_DIR}/../../common.sh"
 
-# This script triggers a manual Cloud Build for the gnome project using an
-# ephemeral configuration. It submits the build from the repository root
-# context to ensure all dependencies (like preflight) are available.
+# This script triggers a manual Cloud Build for a specific workstation image
+# (defaulting to gnome) using an ephemeral configuration. It submits the build
+# from the repository root context to ensure all dependencies (like preflight)
+# are available.
+
+usage() {
+  echo "Usage: $0 [IMAGE_PATH] [--service-account SA_EMAIL]"
+  echo "Example: $0 examples/images/android-studio-for-platform"
+  echo "Defaults:"
+  echo "  IMAGE_PATH: examples/images/gnome"
+  echo "  SA_EMAIL:   cloudbuild@\${PROJECT}.iam.gserviceaccount.com"
+  exit 1
+}
 
 main() {
+  local image_path=""
+  local service_account="${SERVICE_ACCOUNT:-}"
+
+  # Parse arguments
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --service-account)
+        service_account="$2"
+        shift 2
+        ;;
+      -h|--help)
+        usage
+        ;;
+      *)
+        if [[ -z "$image_path" ]]; then
+          image_path="$1"
+        else
+          error "Unknown argument: $1"
+        fi
+        shift
+        ;;
+    esac
+  done
+
+  # Defaults
+  image_path="${image_path:-examples/images/gnome}"
+
   # Validate required variables
   local missing_vars=()
   [[ -z "${PROJECT:-}" ]] && missing_vars+=("PROJECT")
@@ -35,12 +72,17 @@ main() {
     error "Missing required variables in .env: ${missing_vars[*]}"
   fi
 
+  # Final SA default (just the email/ID part)
+  service_account="${service_account:-cloudbuild@${PROJECT}.iam.gserviceaccount.com}"
+
   log "======================================"
   log " 🚀 Triggering Ephemeral Cloud Build"
   log "======================================"
   log "Project:   ${PROJECT}"
   log "Build Reg: ${BUILD_REGION}"
   log "Artif Reg: ${ARTIFACT_REGION}"
+  log "Image Path: ${image_path}"
+  log "Service Account: ${service_account}"
   log "Context:   ${REPO_ROOT}"
   log "======================================"
 
@@ -65,9 +107,14 @@ EOF
   gcloud builds submit "${REPO_ROOT}" \
     --project="${PROJECT}" \
     --region="${BUILD_REGION}" \
+    --service-account="projects/${PROJECT}/serviceAccounts/${service_account}" \
     --ignore-file="${ignore_file}" \
     --substitutions=_SKAFFOLD_DEFAULT_REPO="${ARTIFACT_REGION}-docker.pkg.dev/${PROJECT}/cicd-foundation" \
     --config=<(cat <<EOF
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_32
+timeout: 7200s
 steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
   entrypoint: 'bash'
@@ -80,8 +127,10 @@ steps:
     mv skaffold /usr/local/bin/
 
     # Run skaffold build from the app context
-    cd examples/images/gnome
-    skaffold build --default-repo=\$_SKAFFOLD_DEFAULT_REPO
+    cd ${image_path}
+    skaffold build \
+      --default-repo=\$_SKAFFOLD_DEFAULT_REPO \
+      --cache-artifacts=true
 EOF
 )
 

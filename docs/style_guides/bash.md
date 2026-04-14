@@ -114,7 +114,7 @@ All Bash scripts and CLI workflows must be tested using the **Bats-core** (Bash 
 
 ### How to Write Tests
 1. **Unit vs. Integration**:
-   * Unit Tests (`tests/unit/`): Test individual bash functions by `source`-ing the script and invoking the function directly in a mocked environment (e.g., using `mktemp -d`).
+   * Unit Tests (`tests/`): Test individual bash functions by `source`-ing the script and invoking the function directly in a mocked environment (e.g., using `mktemp -d`).
    * Integration Tests (`tests/integration/`): Test the full end-to-end execution of scripts in the live Cloud Workstation environment via SSH.
 2. **Setup and Teardown**: Use Bats' native `setup()` and `teardown()` hooks to prepare and clean up the test environment.
 3. **Assertions**: Use the `run` command to capture execution. Always assert against both the `$status` (exit code) and the `$output` string.

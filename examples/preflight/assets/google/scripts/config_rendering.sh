@@ -128,6 +128,33 @@ EOV
   done
 }
 
+# Ensures that all web assets are world-readable for Nginx (www-data).
+fix_web_permissions() {
+  log "Fixing permissions for /var/www/html..."
+  # Ensure all files are readable and directories are searchable
+  find /var/www/html -type d -exec chmod 755 {} +
+  find /var/www/html -type f -exec chmod 644 {} +
+}
+
+# Ensures that all scripts are readable and executable.
+fix_script_permissions() {
+  log "Fixing permissions for scripts..."
+  # Ensure /google/scripts are executable
+  if [[ -d "/google/scripts" ]]; then
+    chmod 755 /google/scripts
+    chmod 644 /google/scripts/*
+    # Re-enable execution for .sh files
+    chmod 755 /google/scripts/*.sh || true
+  fi
+
+  # Ensure /etc/workstation-startup.d are executable
+  if [[ -d "/etc/workstation-startup.d" ]]; then
+    chmod 755 /etc/workstation-startup.d
+    chmod 644 /etc/workstation-startup.d/*
+    chmod 755 /etc/workstation-startup.d/*.sh || true
+  fi
+}
+
 main() {
   # Avoid re-running if already rendered
   if [[ -f /run/config-rendered ]]; then
@@ -139,6 +166,8 @@ main() {
   generate_credentials
   save_credentials
   render_templates
+  fix_web_permissions
+  fix_script_permissions
 
   log "Ephemeral authentication configured."
   touch /run/config-rendered

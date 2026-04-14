@@ -1,3 +1,19 @@
+<!--
+Copyright 2024-2026 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
 # Code OSS with Browse Lite preinstalled
 
 This example extends the [Cloud Workstations base editor image](https://cloud.google.com/workstations/docs/preconfigured-base-images) by installing [Google Chrome](https://www.google.com/chrome/) and adding the [Browse Lite extension](https://open-vsx.org/extension/antfu/browse-lite) to Code OSS as a `@builtin` extension. Users are able to interact with a rendered view of chrome (running on the remote workstation) within the Code OSS UI.

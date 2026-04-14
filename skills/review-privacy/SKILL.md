@@ -46,4 +46,4 @@ Verify that sensitive runtime data (like `ephemeral.env`) is:
 
 ## Resources
 - [Privacy Guidelines](../../docs/playbooks/privacy_review.md)
-- [Persona: Privacy](../../skills/adopt-personas/references/privacy.md) (if available)
+- [Persona: Privacy](../../skills/persona-privacy/SKILL.md) (if available)

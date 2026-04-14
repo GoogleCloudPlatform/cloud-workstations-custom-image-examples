@@ -28,7 +28,7 @@ repos:
 
     -   id: check-licenses
         name: Check License Headers
-        entry: ./skills/enforce-standards/scripts/check_licenses.sh
+        entry: ./skills/enforce-standards/scripts/check_licenses.py
         language: script
         pass_filenames: false
 
@@ -49,6 +49,18 @@ repos:
     -   id: bats-preflight
         name: Preflight Unit Tests (Bats)
         entry: bats examples/preflight/tests/unit/
+        language: system
+        pass_filenames: false
+
+    -   id: bats-skills
+        name: Skills Unit Tests (Bats)
+        entry: bash -c 'for d in skills/*/tests; do if ls "$d"/*.bats > /dev/null 2>&1; then bats "$d"; fi; done'
+        language: system
+        pass_filenames: false
+
+    -   id: pytest-skills
+        name: Skills Unit Tests (Pytest)
+        entry: bash -c 'for d in skills/*/tests; do if ls "$d"/*.py > /dev/null 2>&1; then pytest "$d"; fi; done'
         language: system
         pass_filenames: false
 

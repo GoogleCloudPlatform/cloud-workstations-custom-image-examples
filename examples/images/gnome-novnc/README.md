@@ -1,3 +1,19 @@
+<!--
+Copyright 2024-2026 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
 # Gnome Example
 
 This example shows how to create a Cloud Workstations image that runs a desktop manager which can be accessed by remote desktop software. This sample uses [GNOME](https://www.gnome.org/) to provide the desktop environment and preinstalls [TigerVNC](https://tigervnc.org/) along with [noVNC](https://novnc.com/info.html) to provide a one-click, browser-based, interactive session.

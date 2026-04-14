@@ -75,3 +75,41 @@ error() {
   echo -e "[\033[0;31mERROR\033[0m] $*" >&2
   exit 1
 }
+
+# Global Retry Configuration (can be overridden by ENVs or Args)
+export RETRY_ATTEMPTS="${RETRY_ATTEMPTS:-3}"
+export RETRY_DELAY="${RETRY_DELAY:-5}"
+
+# Retries a command multiple times with exponential backoff.
+# Usage: retry [ATTEMPTS] [INITIAL_DELAY] "command to run"
+retry() {
+  local attempts
+  local delay
+  local command
+
+  # Support both legacy "retry 3 5 'cmd'" and "retry 'cmd'" usages.
+  if [[ $# -eq 1 ]]; then
+    attempts="${RETRY_ATTEMPTS}"
+    delay="${RETRY_DELAY}"
+    command="${1}"
+  else
+    attempts="${1}"
+    delay="${2}"
+    command="${3}"
+  fi
+
+  local current_delay="${delay}"
+
+  for i in $(seq 1 "${attempts}"); do
+    if eval "${command}"; then
+      return 0
+    fi
+    if [[ "${i}" -lt "${attempts}" ]]; then
+      warn "Command failed (Attempt ${i}/${attempts}). Retrying in ${current_delay}s: ${command}"
+      sleep "${current_delay}"
+      current_delay=$((current_delay * 2))
+    else
+      error "Command failed after ${attempts} attempts: ${command}"
+    fi
+  done
+}

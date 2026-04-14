@@ -45,7 +45,15 @@ These global skills are available within the `skills/` directory:
 *   **`troubleshoot-cws`**: Official diagnostic playbook for service crashes.
 *   **`validate-image-updates`**: Enforces the mandatory 6-step validation workflow.
 *   **`enforce-standards`**: Mandatory style guides for Bash, TypeScript, and Docker.
-*   **`adopt-personas`**: role-based code review framework.
+*   **`persona-swe`**: Software Engineering mandates and history refactoring.
+*   **`persona-sre`**: System resilience and service orchestration.
+*   **`persona-security`**: Vulnerability auditing and system hardening.
+*   **`persona-readability`**: Maintainability and idiomatic code standards.
+*   **`persona-ux`**: Design language, layout stability, and accessibility.
+*   **`persona-legal`**: Licensing, copyrights, and SBOM compliance.
+*   **`persona-oss`**: Upstream-first and community standards.
+*   **`persona-privacy`**: Data handling and privacy regulation compliance.
+*   **`persona-agent-manager`**: Skill lifecycle and agent orchestration.
 
 ## 4. Module-Specific Proximity Router
 

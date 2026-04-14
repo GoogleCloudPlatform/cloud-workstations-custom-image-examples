@@ -80,9 +80,18 @@ setup_rdp_certs() {
     if [[ ! -f "${grd_cert_dir}/rdp-tls.crt" ]]; then
       log "Generating new RDP TLS certificate..."
       mkdir -p "${grd_cert_dir}"
+      chown -R 1000:1000 "/home/user/.local"
       local make_cert
       make_cert=$(command -v winpr-makecert3 || command -v winpr3-makecert || command -v winpr-makecert)
       runuser -u user -- "${make_cert}" -silent -rdp -path "${grd_cert_dir}" rdp-tls
+
+      # Strip trailing null bytes that break some PEM parsers (e.g. FreeRDP/GRD)
+      for f in "${grd_cert_dir}"/rdp-tls.*; do
+        if [[ -f "$f" ]]; then
+          tr -d '\0' < "$f" > "$f.tmp" && mv "$f.tmp" "$f"
+        fi
+      done
+
       chown -R 1000:1000 "${grd_cert_dir}"
     fi
   fi
@@ -99,6 +108,7 @@ setup_keyring() {
     # remains and the daemon cannot be unlocked, breaking RDP sync.
     rm -rf "${keyring_dir}"
     mkdir -p "${keyring_dir}"
+    chown -R 1000:1000 "/home/user/.local"
 
     # Ensure a default keyring exists and is unlocked
     # We use a blank password for the headless session
@@ -119,6 +129,7 @@ setup_browser() {
   if [[ ! -f /home/user/.config/mimeapps.list ]]; then
     log "Setting google-chrome as default browser..."
     mkdir -p /home/user/.config
+    chown -R 1000:1000 /home/user/.config
     runuser -u user -- bash -c '
       export HOME=/home/user
       xdg-mime default google-chrome.desktop text/html
@@ -127,7 +138,6 @@ setup_browser() {
       xdg-mime default google-chrome.desktop x-scheme-handler/about
       xdg-settings set default-web-browser google-chrome.desktop
     '
-    chown -R 1000:1000 /home/user/.config
   fi
 }
 
@@ -138,7 +148,7 @@ setup_gnome_settings() {
   local ext="just-perfection-desktop@just-perfection"
   wait_for_extension "${ext}" || true
 
-  runuser -u user -- bash <<EOF
+  runuser -u user -- bash <<'EOF'
     export XDG_RUNTIME_DIR=/run/user/1000
     export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
 
@@ -146,9 +156,9 @@ setup_gnome_settings() {
     gsettings set org.gnome.shell disable-user-extensions false
 
     # Enable extensions using the more robust gnome-extensions command
-    if gnome-extensions list | grep -q "${ext}"; then
-      echo "Enabling ${ext}..."
-      gnome-extensions enable "${ext}" || true
+    if gnome-extensions list | grep -q "just-perfection-desktop@just-perfection"; then
+      echo "Enabling just-perfection-desktop@just-perfection..."
+      gnome-extensions enable "just-perfection-desktop@just-perfection" || true
     fi
 
     # Configure Just Perfection specific settings
@@ -159,6 +169,24 @@ setup_gnome_settings() {
 
     # Aggressive privacy overrides to prevent indicator triggers
     gsettings set org.gnome.SessionManager auto-save-session true
+
+    # Disable screen locking and idle timeouts to avoid "Screen Locking disabled" notifications
+    gsettings set org.gnome.desktop.screensaver lock-enabled false
+    gsettings set org.gnome.desktop.session idle-delay 0
+    gsettings set org.gnome.desktop.lockdown disable-lock-screen true
+
+    # Set base favorite apps
+    gsettings set org.gnome.shell favorite-apps "['google-chrome.desktop', 'org.gnome.Nautilus.desktop']"
+
+    # Run additional modular user-level hooks
+    if [ -d "/google/scripts/user-setup.d/" ]; then
+      for hook in /google/scripts/user-setup.d/*.sh; do
+        [ -e "$hook" ] || continue
+        echo "Running session hook: $hook"
+        # Source the hook inside the runuser bash session to inherit the environment
+        source "$hook"
+      done
+    fi
 EOF
 }
 main() {

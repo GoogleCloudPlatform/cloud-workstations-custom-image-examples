@@ -1,0 +1,22 @@
+# Source Code Versioning History Refactoring Rules (Example)
+# Mapping: Author Date -> List of owned paths
+# Use a unique author date string (e.g., ISO 8601) to identify the base commit.
+# All changes to these paths from later commits will be consolidated into this base.
+
+"2026-04-14 17:36:44 +0000":
+  - examples/images/android-studio-for-platform/
+
+"2026-04-13 12:24:06 +0000":
+  - examples/images/antigravity/
+
+"2026-04-13 10:01:55 +0000":
+  - examples/images/gnome/
+
+"2026-04-13 09:51:16 +0000":
+  - examples/preflight/
+
+"2026-04-13 10:05:17 +0000":
+  - AGENTS.md
+  - GEMINI.md
+  - docs/
+  - skills/
