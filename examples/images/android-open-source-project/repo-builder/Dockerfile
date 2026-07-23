@@ -25,14 +25,12 @@ RUN apt-get update && apt-get install -y \
     debhelper-compat \
     golang \
     curl && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   git clone https://github.com/google/android-cuttlefish && \
   /android-cuttlefish/tools/buildutils/build_packages.sh && \
   mkdir out && \
   cp /android-cuttlefish/cuttlefish-base_*_*64.deb /out && \
   cp /android-cuttlefish/cuttlefish-user_*_*64.deb /out && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Main container
@@ -45,7 +43,6 @@ RUN apt-get update && apt-get install -y \
   #smoke tests
   repo version && \
   rsync --version && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Install Cuttlefish from builder
@@ -55,7 +52,6 @@ RUN cd /cuttlefish && \
   apt install -y ./cuttlefish-base_*.deb ./cuttlefish-user_*.deb && \
   cd / && \
   rm -rf /cuttlefish && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Install recommended tooling: https://source.android.com/docs/setup/start
@@ -77,7 +73,6 @@ RUN apt-get update && apt-get install -y \
     xsltproc \
     unzip \
     fontconfig && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Merge assets into the container.

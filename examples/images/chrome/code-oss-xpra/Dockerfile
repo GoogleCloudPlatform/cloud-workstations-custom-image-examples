@@ -28,7 +28,6 @@ echo "deb [signed-by=/etc/apt/keyrings/xpra.asc] http://xpra.org/ noble main" > 
   python3-paramiko \
   python3-zeroconf \
   python3-avahi && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Install google-chrome
@@ -36,7 +35,6 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
   apt-get update && \
   apt install -y ./google-chrome*.deb && \
   rm google-chrome*.deb && \
-  apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   # Ensure chrome will work in a headless environment without gpu support by
   # specifying environment variables and flags
