@@ -1,10 +1,12 @@
-# Copyright 2024 Google LLC
+#!/bin/bash
+#
+# Copyright 2024-2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     https://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -12,14 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-options:
-  substitutionOption: MUST_MATCH
+#
+# Startup script to persist machine-id across workstation instances.
+#
 
-steps:
-- id: build-gnome-vnc
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', '${_IMAGE_NAME}', '.']
-  env:
-      - "DOCKER_BUILDKIT=1"
+SAVE_PATH=/home/.workstation/machine-id
 
-images: ['${_IMAGE_NAME}']
+if [ ! -f $SAVE_PATH ]; then
+  MACHINE_ID=$(cat /etc/machine-id)
+  echo "saving machine id $MACHINE_ID to $SAVE_PATH"
+  mkdir -p "$(dirname $SAVE_PATH)"
+  printf '%s\n' $MACHINE_ID >$SAVE_PATH
+fi

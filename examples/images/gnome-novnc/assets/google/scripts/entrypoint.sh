@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright 2024 Google LLC
+# Copyright 2024-2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ log () {
 # re-use machine id saved in home directory after initialized on first boot
 # see also: /etc/workstation-startup.d/100_persist-machine-id
 MACHINE_ID=$(cat /home/.workstation/machine-id 2>/dev/null)
-if [ ! -z "$MACHINE_ID" ]; then
+if [ -n "$MACHINE_ID" ]; then
   log "starting systemd with machine id $MACHINE_ID"
   exec /sbin/init --system --unit=multi-user.target --machine-id "$MACHINE_ID"
 else
