@@ -1,3 +1,19 @@
+<!--
+Copyright 2026 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
 # Cloud Workstations for Android Automotive Platform Development
 
 This provides guidance on setting up and using Cloud Workstations for Android
@@ -47,7 +63,7 @@ Cloud Workstations require the following:
     is not enforced for the project.
 3.  **AOSP Development Environment Container Image:** To build Android device
     targets,
-    [the android-studio-for-platform image](../../examples/images/android-open-source-project/android-studio-for-platform/README.md)
+    [the android-studio-for-platform image](../../examples/images/android-studio-for-platform/README.md)
     must be built first. It takes about 20 min to build.
 
 ## Create a Workstation for Administrators
@@ -83,15 +99,15 @@ need to be adjusted based on the specific build targets.
 2.  70 min. to build aosp_cf_x86_64_auto-ap4a-userdebug.
 3.  60 min. to build cts.
 4.  70 min. to sync and index for the ASfP project.
-    *   The recommended
-        [ASfP memory settings](https://developer.android.com/studio/intro/studio-config#adjusting_heap_size)
-        is 64 GB for administrator workstations due to the large codebase.
-    *   For example, the vcar project can still be synced and indexed with 30 GB
-        of memory, but it will take over 120 minutes and trigger a low memory
-        notification.
-    *   The default settings are 64 GB or 70% of free memory for lower-cost
-        developer workstations, as configured in
-        [200_add-asfp-defaults.sh](../../examples/images/android-open-source-project/android-studio-for-platform/assets/etc/workstation-startup.d/200_add-asfp-defaults.sh).
+    - The recommended
+      [ASfP memory settings](https://developer.android.com/studio/intro/studio-config#adjusting_heap_size)
+      is 64 GB for administrator workstations due to the large codebase.
+    - For example, the vcar project can still be synced and indexed with 30 GB
+      of memory, but it will take over 120 minutes and trigger a low memory
+      notification.
+    - The default settings are 64 GB or 70% of free memory for lower-cost
+      developer workstations, as configured in
+      [200_add-asfp-defaults.sh](../../examples/images/android-studio-for-platform/assets/etc/workstation-startup.d/200_add-asfp-defaults.sh).
 5.  550 GB is used in the home directory.
 
 ## Pre-bake Persistent Disk Snapshots
@@ -107,7 +123,7 @@ Follow these steps:
     Cuttlefish Virtual Device (CVD): `aosp_cf_x86_64_auto-ap4a-userdebug` and
     [CTS](https://source.android.com/docs/compatibility/cts/development). For
     example:
-    [/google/scripts/build_vcar.sh](../../examples/images/android-open-source-project/android-studio-for-platform/assets/google/scripts/build_vcar.sh).
+    [/google/scripts/build_vcar.sh](../../examples/images/android-studio-for-platform/assets/google/scripts/build_vcar.sh).
 3.  [Setup ASfP to create a project](https://developer.android.com/studio/platform/projects),
     sync and index the codebase. For example, a project configuration file at
     `/home/user/AsfpProjects/vcar/asfp-config.json` is as:
@@ -136,23 +152,23 @@ Follow these steps:
 
 4.  Verify the build by running test cases against the CVD in ASfP:
 
-    *   Run the script
-        [/google/scripts/start_vcar_cvd.sh](../../examples/images/android-open-source-project/android-studio-for-platform/assets/google/scripts/start_vcar_cvd.sh)
-        to start the CVD.
-    *   Open `CipherTest.java` in the ASfP project.
-    *   Click the **Run** icon to
-        [test platform code](https://developer.android.com/studio/platform/test).
+    - Run the script
+      [/google/scripts/start_vcar_cvd.sh](../../examples/images/android-studio-for-platform/assets/google/scripts/start_vcar_cvd.sh)
+      to start the CVD.
+    - Open `CipherTest.java` in the ASfP project.
+    - Click the **Run** icon to
+      [test platform code](https://developer.android.com/studio/platform/test).
 
     ![Running CTS In ASfP](./resources/CtsInAsfp.gif)
 
 5.  Stop the CVD and clean up:
 
-    *   Run the script
-        [/google/scripts/stop_vcar_cvd.sh](../../examples/images/android-open-source-project/android-studio-for-platform/assets/google/scripts/stop_vcar_cvd.sh)
-        to stop the CVD.
-    *   Run the script
-        [/google/scripts/cleanup_for_snapshot.sh](../../examples/images/android-open-source-project/android-studio-for-platform/assets/google/scripts/cleanup_for_snapshot.sh)
-        to clean up.
+    - Run the script
+      [/google/scripts/stop_vcar_cvd.sh](../../examples/images/android-studio-for-platform/assets/google/scripts/stop_vcar_cvd.sh)
+      to stop the CVD.
+    - Run the script
+      [/google/scripts/cleanup_for_snapshot.sh](../../examples/images/android-studio-for-platform/assets/google/scripts/cleanup_for_snapshot.sh)
+      to clean up.
 
 6.  Identify the persistent disk of the workstation and create a snapshot.
 
