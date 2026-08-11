@@ -1,0 +1,590 @@
+[
+  {
+    "id": "aborted",
+    "translation": "已中止。"
+  },
+  {
+    "id": "already_sedimented",
+    "translation": "[已沉积]"
+  },
+  {
+    "id": "already_validated",
+    "translation": "已验证"
+  },
+  {
+    "id": "amending_uncommitted",
+    "translation": "正在将未提交的更改修正到地表层..."
+  },
+  {
+    "id": "base_ref_name",
+    "translation": "基础"
+  },
+  {
+    "id": "base_ref_skipped",
+    "translation": "基础地层锚点"
+  },
+  {
+    "id": "branch_updated",
+    "translation": "分支 '{{.Branch}}' 已更新。"
+  },
+  {
+    "id": "capturing_sediment",
+    "translation": "  [{{.Icon}}] 正在捕获 '{{.Path}}' 的沉积物"
+  },
+  {
+    "id": "clean_whitespace_fixed",
+    "translation": "已修复: {{.Path}}"
+  },
+  {
+    "id": "clean_whitespace_summary",
+    "translation": "\n⚠️  已清理 {{.Count}} 个文件中的尾随空格/文件尾空行。"
+  },
+  {
+    "id": "cleanup_instructions",
+    "translation": "cd {{.OldCwd}} && git worktree remove --force {{.Dir}}"
+  },
+  {
+    "id": "cleanup_instructions_header",
+    "translation": "清理方法："
+  },
+  {
+    "id": "debug_parent_not_found",
+    "translation": "在历史中未找到父级 {{.Hash}}"
+  },
+  {
+    "id": "error_build_sediment_tree",
+    "translation": "构建沉积树失败: {{.Error}}"
+  },
+  {
+    "id": "error_build_tree",
+    "translation": "为 {{.Hash}} 构建树失败: {{.Error}}"
+  },
+  {
+    "id": "error_checkout_failed",
+    "translation": "检出 {{.Hash}} 失败: {{.Error}}"
+  },
+  {
+    "id": "error_commit_object",
+    "translation": "获取 {{.Hash}} 的提交对象失败: {{.Error}}"
+  },
+  {
+    "id": "error_commit_tree",
+    "translation": "获取提交树失败: {{.Error}}"
+  },
+  {
+    "id": "error_conflict_predicted",
+    "translation": "预测到冲突：分支 '{{.Branch}}' (基岩 {{.Bedrock}}) 修改的文件也被跳过的地层 {{.Stratum}} 触及，文件列表: {{.Files}} - 请更新 .gitseep.yaml 中的依赖项以解决此冲突"
+  },
+  {
+    "id": "error_dependency_cycle",
+    "translation": "检测到依赖循环: {{.Cycle}}"
+  },
+  {
+    "id": "error_diff_tree",
+    "translation": "对比提交 {{.Hash}} 的树失败: {{.Error}}"
+  },
+  {
+    "id": "error_diff_trees",
+    "translation": "对比树失败: {{.Error}}"
+  },
+  {
+    "id": "error_encode_commit",
+    "translation": "编码新提交失败: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_clean",
+    "translation": "清理 {{.Path}} 失败: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_stat",
+    "translation": "获取 {{.Path}} 状态失败: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_walk",
+    "translation": "遍历目录 {{.Path}} 失败: {{.Error}}"
+  },
+  {
+    "id": "error_find_commit",
+    "translation": "查找提交 {{.Hash}} 失败: {{.Error}}"
+  },
+  {
+    "id": "error_get_parent",
+    "translation": "获取父提交失败: {{.Error}}"
+  },
+  {
+    "id": "error_get_tree",
+    "translation": "获取提交 {{.Hash}} 的树失败: {{.Error}}"
+  },
+  {
+    "id": "error_head_commit",
+    "translation": "获取原始 HEAD 提交失败: {{.Error}}"
+  },
+  {
+    "id": "error_head_files",
+    "translation": "获取原始 HEAD 的文件失败: {{.Error}}"
+  },
+  {
+    "id": "error_head_tree",
+    "translation": "获取原始 HEAD 的树失败: {{.Error}}"
+  },
+  {
+    "id": "error_hide_experimental_flag",
+    "translation": "隐藏实验性标志失败: {{.Error}}"
+  },
+  {
+    "id": "error_invalid_base",
+    "translation": "无效的基础提交或引用 {{.Base}}: {{.Error}}"
+  },
+  {
+    "id": "error_invalid_rule_format",
+    "translation": "键 {{.Key}} 的规则格式无效"
+  },
+  {
+    "id": "error_isolated_worktree_failed",
+    "translation": "创建隔离工作区失败: {{.Error}}\n输出: {{.Output}}"
+  },
+  {
+    "id": "error_no_commits_for_date",
+    "translation": "在当前分支历史中未找到日期为 {{.Date}} 的提交"
+  },
+  {
+    "id": "error_orig_commit",
+    "translation": "获取原始提交 {{.Hash}} 失败: {{.Error}}"
+  },
+  {
+    "id": "error_orig_files",
+    "translation": "获取原始提交 {{.Hash}} 的文件失败: {{.Error}}"
+  },
+  {
+    "id": "error_orig_tree",
+    "translation": "获取原始提交 {{.Hash}} 的树失败: {{.Error}}"
+  },
+  {
+    "id": "error_parent_commit",
+    "translation": "获取父提交 {{.Hash}} 失败: {{.Error}}"
+  },
+  {
+    "id": "error_parent_files",
+    "translation": "获取父提交 {{.Hash}} 的文件失败: {{.Error}}"
+  },
+  {
+    "id": "error_parent_tree",
+    "translation": "获取父树失败: {{.Error}}"
+  },
+  {
+    "id": "error_parse_yaml",
+    "translation": "解析 YAML 失败: {{.Error}}"
+  },
+  {
+    "id": "error_precommit_failed",
+    "translation": "pre-commit 钩子失败"
+  },
+  {
+    "id": "error_precommit_missing_config",
+    "translation": "提交 {{.Hash}} 中没有 pre-commit 配置"
+  },
+  {
+    "id": "error_precommit_not_configured",
+    "translation": "HEAD 中未配置 pre-commit"
+  },
+  {
+    "id": "error_precommit_not_found",
+    "translation": "在 PATH 中未找到 pre-commit 可执行文件"
+  },
+  {
+    "id": "error_read_rules",
+    "translation": "读取规则文件失败: {{.Error}}"
+  },
+  {
+    "id": "error_root_list",
+    "translation": "列出根提交文件失败: {{.Error}}"
+  },
+  {
+    "id": "error_rules_not_found",
+    "translation": "未找到渗漏规则，请创建 {{.File}}"
+  },
+  {
+    "id": "error_set_encoded",
+    "translation": "为新提交设置编码对象失败: {{.Error}}"
+  },
+  {
+    "id": "error_stratigraphy_modification",
+    "translation": "请运行 'gitseep' 以整理地层结构 (提交 {{.Hash}} 需要修改)"
+  },
+  {
+    "id": "error_surface_validation_failed",
+    "translation": "地表验证失败"
+  },
+  {
+    "id": "error_worktree_creation_failed",
+    "translation": "工作区创建失败"
+  },
+  {
+    "id": "experimental_danger",
+    "translation": "此实现在符号链接方面存在已知问题，可能会损坏您的工作区。"
+  },
+  {
+    "id": "experimental_warning",
+    "translation": "您已启用实验性功能: go-git 集成。"
+  },
+  {
+    "id": "failed_amend",
+    "translation": "修正更改失败: {{.Error}}"
+  },
+  {
+    "id": "failed_check_status",
+    "translation": "检查仓库状态失败: {{.Error}}"
+  },
+  {
+    "id": "failed_read_linear_commit",
+    "translation": "      ⮑  读取线性提交失败: {{.Error}}"
+  },
+  {
+    "id": "finalizing_reconstruction",
+    "translation": "正在完成重建和沉积过程..."
+  },
+  {
+    "id": "headless_summary_status",
+    "translation": "已成功迁移 {{.Total}} 个文件。"
+  },
+  {
+    "id": "history_matches_direct",
+    "translation": "[历史匹配，直接使用线性提交]"
+  },
+  {
+    "id": "history_sedimented_success",
+    "translation": "GitSeep 检查通过。地层结构已完美沉积。"
+  },
+  {
+    "id": "history_staged",
+    "translation": "重构后的历史已准备在: {{.Branch}}"
+  },
+  {
+    "id": "lithify_label",
+    "translation": "岩化"
+  },
+  {
+    "id": "loading_context",
+    "translation": "正在初始化上下文并解析历史..."
+  },
+  {
+    "id": "manual_return_info",
+    "translation": "返回主工作区后，请应用修复并重新运行 gitseep。"
+  },
+  {
+    "id": "migration_detail",
+    "translation": "迁移至基岩 {{.Hash}}: {{.Details}}"
+  },
+  {
+    "id": "migration_detail_simple",
+    "translation": "{{.Details}}"
+  },
+  {
+    "id": "pipeline_discovery",
+    "translation": "🔍 发现"
+  },
+  {
+    "id": "pipeline_execution",
+    "translation": "⚙️  执行"
+  },
+  {
+    "id": "pipeline_finalization",
+    "translation": "🏆 完成"
+  },
+  {
+    "id": "pipeline_sedimentation",
+    "translation": "🏞️  沉积"
+  },
+  {
+    "id": "pipeline_selection",
+    "translation": "🎯 选择"
+  },
+  {
+    "id": "pipeline_validation",
+    "translation": "🧪 验证"
+  },
+  {
+    "id": "prefix_debug",
+    "translation": "调试:"
+  },
+  {
+    "id": "prefix_error",
+    "translation": "错误:"
+  },
+  {
+    "id": "prefix_warning",
+    "translation": "警告:"
+  },
+  {
+    "id": "proceed_prompt",
+    "translation": "您确定要继续吗？[YES/NO]: "
+  },
+  {
+    "id": "reconstructing_strata",
+    "translation": "正在重建地层: {{.Current}}/{{.Total}}"
+  },
+  {
+    "id": "reconstruction_summary",
+    "translation": "\n{{.Current}}/{{.Total}} {{.Hash}} - {{.Subject}}"
+  },
+  {
+    "id": "report_geological",
+    "translation": "地质报告"
+  },
+  {
+    "id": "report_lithifications",
+    "translation": "岩化作用"
+  },
+  {
+    "id": "report_percolations",
+    "translation": "渗滤"
+  },
+  {
+    "id": "report_seeps",
+    "translation": "渗漏"
+  },
+  {
+    "id": "reproduce_label",
+    "translation": "如需重现，请运行："
+  },
+  {
+    "id": "running_diagnostic_precommit",
+    "translation": "正在对失败的文件运行诊断性 pre-commit..."
+  },
+  {
+    "id": "running_hooks",
+    "translation": "[正在运行钩子...]"
+  },
+  {
+    "id": "scanning_history",
+    "translation": "正在扫描历史: {{.Current}}/{{.Total}}"
+  },
+  {
+    "id": "sedimentation_success",
+    "translation": "      ⮑  成功: {{.Hash}}"
+  },
+  {
+    "id": "sedimenting_branch",
+    "translation": "正在沉积分支 {{.Current}}/{{.Total}}: {{.Branch}}"
+  },
+  {
+    "id": "selection_confirmed",
+    "translation": "选择已确认。开始重建历史..."
+  },
+  {
+    "id": "selection_confirmed_label",
+    "translation": "(只读 - 已确认)"
+  },
+  {
+    "id": "selection_empty",
+    "translation": "无需迁移任何文件。地层结构正常。"
+  },
+  {
+    "id": "selection_instructions",
+    "translation": "使用 [上/下] 键导航，[空格] 切换，[C] 确认。"
+  },
+  {
+    "id": "selection_status",
+    "translation": "项目 {{.Current}} / {{.Total}} (已选择 {{.Selected}}/{{.Total}})"
+  },
+  {
+    "id": "selection_view_title",
+    "translation": "[选择视图]"
+  },
+  {
+    "id": "shell_escape_activated",
+    "translation": "🐚 故障排除 - 摘要与指南"
+  },
+  {
+    "id": "shell_escape_guidance",
+    "translation": "确定修复方案并将其应用到您的开发分支。修复后，重新运行 gitseep。"
+  },
+  {
+    "id": "shell_exit_info",
+    "translation": "\n--- 故障排除摘要 ---"
+  },
+  {
+    "id": "shell_spawn_info",
+    "translation": "在 {{.Dir}} 中启动交互式子 shell"
+  },
+  {
+    "id": "shortcut_close_dialog",
+    "translation": "关闭对话框"
+  },
+  {
+    "id": "shortcut_exit",
+    "translation": "退出"
+  },
+  {
+    "id": "shortcut_navigate",
+    "translation": "导航"
+  },
+  {
+    "id": "shortcut_quit",
+    "translation": "退出"
+  },
+  {
+    "id": "shortcut_scroll",
+    "translation": "滚动"
+  },
+  {
+    "id": "skipped_label",
+    "translation": "[已跳过]"
+  },
+  {
+    "id": "status_complete",
+    "translation": "✅ 完成"
+  },
+  {
+    "id": "status_pending",
+    "translation": "待处理"
+  },
+  {
+    "id": "status_running",
+    "translation": "运行中..."
+  },
+  {
+    "id": "stratigraphy_empty",
+    "translation": "配置中未定义基岩规则。"
+  },
+  {
+    "id": "stratigraphy_parent_label",
+    "translation": "⮑  父级: {{.Parent}}"
+  },
+  {
+    "id": "stratigraphy_success",
+    "translation": "地层结构验证成功。未预测到数学冲突。"
+  },
+  {
+    "id": "stratigraphy_truncated",
+    "translation": "... (内容已截断，请参阅 .gitseep.yaml 获取完整规则)"
+  },
+  {
+    "id": "stratigraphy_view_title",
+    "translation": "[配置地层结构]"
+  },
+  {
+    "id": "summary_empty",
+    "translation": "本次会话未迁移任何文件。"
+  },
+  {
+    "id": "summary_status",
+    "translation": "项目 {{.Current}} / {{.Total}} (已成功迁移 {{.Total}} 个文件)"
+  },
+  {
+    "id": "summary_view_title",
+    "translation": "[迁移摘要]"
+  },
+  {
+    "id": "surface_check_label",
+    "translation": "地表检查"
+  },
+  {
+    "id": "surface_validation_success",
+    "translation": "地表验证成功完成。"
+  },
+  {
+    "id": "sync_issue",
+    "translation": "工作区同步遇到问题: {{.Error}}"
+  },
+  {
+    "id": "syncing_branch",
+    "translation": "  [{{.Icon}}] 正在同步 {{.Branch}} (至 {{.Parent}})"
+  },
+  {
+    "id": "tab_logs",
+    "translation": "📋 日志"
+  },
+  {
+    "id": "tab_selection",
+    "translation": "🎯 选择"
+  },
+  {
+    "id": "tab_stratigraphy",
+    "translation": "ℹ️  地层结构"
+  },
+  {
+    "id": "tab_summary",
+    "translation": "🏁 摘要"
+  },
+  {
+    "id": "tab_validation",
+    "translation": "✅ 验证"
+  },
+  {
+    "id": "time_label",
+    "translation": "🕒 {{.Date}}"
+  },
+  {
+    "id": "tui_header",
+    "translation": "GitSeep 仪表板"
+  },
+  {
+    "id": "usage_clean_whitespace",
+    "translation": "用法: clean_whitespace <文件或目录>..."
+  },
+  {
+    "id": "validating_feature_branch",
+    "translation": "正在验证功能分支"
+  },
+  {
+    "id": "validating_linear_stratum",
+    "translation": "正在验证线性地层"
+  },
+  {
+    "id": "validating_surface",
+    "translation": "正在验证地表 (HEAD)..."
+  },
+  {
+    "id": "validation_failed",
+    "translation": "❌ 验证失败！"
+  },
+  {
+    "id": "validation_failure_cleanup_info",
+    "translation": "如需手动清理，请运行："
+  },
+  {
+    "id": "validation_failure_preserved",
+    "translation": "已保留用于调试的隔离工作区："
+  },
+  {
+    "id": "validation_failure_shortcuts",
+    "translation": "按 Enter 键退出"
+  },
+  {
+    "id": "validation_failure_title",
+    "translation": "验证失败"
+  },
+  {
+    "id": "validation_gravity_label",
+    "translation": "从现代尖端向历史基础进行验证"
+  },
+  {
+    "id": "validation_not_started",
+    "translation": "验证尚未开始。"
+  },
+  {
+    "id": "validation_status",
+    "translation": "正在验证: {{.Bar}} {{.Percent}}% ({{.Completed}}/{{.Total}})"
+  },
+  {
+    "id": "validation_view_title",
+    "translation": "[验证视图]"
+  },
+  {
+    "id": "waiting_discovery",
+    "translation": "正在等待发现结果..."
+  },
+  {
+    "id": "waiting_for_reconstruction",
+    "translation": "正在等待历史重建..."
+  },
+  {
+    "id": "worktree_dirty",
+    "translation": "工作区存在未提交的更改；请在运行 gitseep 前使用 --amend 或 stash"
+  },
+  {
+    "id": "worktree_untracked",
+    "translation": "工作区存在未跟踪的文件；GitSeep 将忽略这些文件"
+  }
+]

@@ -1,0 +1,7 @@
+*~
+.env
+.gemini/
+.gitseep.yaml
+__pycache__
+coverage.out
+reports/
