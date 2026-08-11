@@ -81,7 +81,7 @@ RUN echo "-Ddisable.android.first.run=true" >> /opt/google/android-studio/bin/st
 RUN echo "studiobot.chat.use.compose.for.ui=false"  >> /opt/google/android-studio/bin/idea.properties
 
 # Install systemd, GNOME, and VNC. Alternatively, you can source the main
-# container build from the image  built using ../../gnome/noVnc/Dockerfile and
+# container build from the image  built using ../../gnome-novnc/Dockerfile and
 # omit much of the following.
 
 # Install and configure systemd
