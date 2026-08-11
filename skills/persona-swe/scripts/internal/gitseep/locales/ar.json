@@ -1,0 +1,590 @@
+[
+  {
+    "id": "aborted",
+    "translation": "تم الإلغاء."
+  },
+  {
+    "id": "already_sedimented",
+    "translation": "[مرسب بالفعل]"
+  },
+  {
+    "id": "already_validated",
+    "translation": "تم التحقق بالفعل"
+  },
+  {
+    "id": "amending_uncommitted",
+    "translation": "تعديل التغييرات غير الملتزم بها في الطبقة السطحية..."
+  },
+  {
+    "id": "base_ref_name",
+    "translation": "القاعدة"
+  },
+  {
+    "id": "base_ref_skipped",
+    "translation": "مرساة الطبقة الأساسية"
+  },
+  {
+    "id": "branch_updated",
+    "translation": "تم تحديث الفرع '{{.Branch}}'."
+  },
+  {
+    "id": "capturing_sediment",
+    "translation": "  [{{.Icon}}] التقاط الرواسب لـ '{{.Path}}'"
+  },
+  {
+    "id": "clean_whitespace_fixed",
+    "translation": "تم الإصلاح: {{.Path}}"
+  },
+  {
+    "id": "clean_whitespace_summary",
+    "translation": "\n⚠️  تم تنظيف المسافات البيضاء الزائدة/نهاية الملف في {{.Count}} ملفات."
+  },
+  {
+    "id": "cleanup_instructions",
+    "translation": "cd {{.OldCwd}} && git worktree remove --force {{.Dir}}"
+  },
+  {
+    "id": "cleanup_instructions_header",
+    "translation": "للتنظيف:"
+  },
+  {
+    "id": "debug_parent_not_found",
+    "translation": "الأب {{.Hash}} غير موجود في التاريخ"
+  },
+  {
+    "id": "error_build_sediment_tree",
+    "translation": "فشل في بناء شجرة الرواسب: {{.Error}}"
+  },
+  {
+    "id": "error_build_tree",
+    "translation": "فشل في بناء الشجرة لـ {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_checkout_failed",
+    "translation": "فشل في فحص (checkout) لـ {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_commit_object",
+    "translation": "فشل في الحصول على كائن الالتزام لـ {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_commit_tree",
+    "translation": "فشل في الحصول على شجرة الالتزام: {{.Error}}"
+  },
+  {
+    "id": "error_conflict_predicted",
+    "translation": "صراع متوقع: الفرع '{{.Branch}}' (صخر الأساس {{.Bedrock}}) يقوم بتعديل ملفات تأثرت أيضاً بالطبقة التي تم تخطيها {{.Stratum}}، الملفات: {{.Files}} - قم بتحديث التبعيات الخاصة بك في .gitseep.yaml لحل هذا الصراع"
+  },
+  {
+    "id": "error_dependency_cycle",
+    "translation": "تم اكتشاف دورة تبعية: {{.Cycle}}"
+  },
+  {
+    "id": "error_diff_tree",
+    "translation": "فشل في مقارنة الشجرة للالتزام {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_diff_trees",
+    "translation": "فشل في مقارنة الأشجار: {{.Error}}"
+  },
+  {
+    "id": "error_encode_commit",
+    "translation": "فشل في ترميز الالتزام الجديد: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_clean",
+    "translation": "فشل في تنظيف {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_stat",
+    "translation": "فشل في الحصول على حالة {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_walk",
+    "translation": "فشل في فحص الدليل {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_find_commit",
+    "translation": "فشل في العثور على الالتزام {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_get_parent",
+    "translation": "فشل في الحصول على الالتزام الأب: {{.Error}}"
+  },
+  {
+    "id": "error_get_tree",
+    "translation": "فشل في الحصول على الشجرة للالتزام {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_head_commit",
+    "translation": "فشل في الحصول على التزام الرأس (HEAD) الأصلي: {{.Error}}"
+  },
+  {
+    "id": "error_head_files",
+    "translation": "فشل في الحصول على الملفات للرأس الأصلي: {{.Error}}"
+  },
+  {
+    "id": "error_head_tree",
+    "translation": "فشل في الحصول على الشجرة للرأس الأصلي: {{.Error}}"
+  },
+  {
+    "id": "error_hide_experimental_flag",
+    "translation": "فشل إخفاء العلم التجريبي: {{.Error}}"
+  },
+  {
+    "id": "error_invalid_base",
+    "translation": "التزام قاعدة أو مرجع غير صالح {{.Base}}: {{.Error}}"
+  },
+  {
+    "id": "error_invalid_rule_format",
+    "translation": "تنسيق قاعدة غير صالح للمفتاح {{.Key}}"
+  },
+  {
+    "id": "error_isolated_worktree_failed",
+    "translation": "فشل في إنشاء شجرة عمل معزولة: {{.Error}}\nالمخرجات: {{.Output}}"
+  },
+  {
+    "id": "error_no_commits_for_date",
+    "translation": "لم يتم العثور على التزامات للتاريخ {{.Date}} في تاريخ الفرع الحالي"
+  },
+  {
+    "id": "error_orig_commit",
+    "translation": "فشل في الحصول على الالتزام الأصلي {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_orig_files",
+    "translation": "فشل في الحصول على الملفات للالتزام الأصلي {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_orig_tree",
+    "translation": "فشل في الحصول على الشجرة للالتزام الأصلي {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_commit",
+    "translation": "فشل في الحصول على الالتزام الأب {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_files",
+    "translation": "فشل في الحصول على الملفات للالتزام الأب {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_tree",
+    "translation": "فشل في الحصول على الشجرة الأب: {{.Error}}"
+  },
+  {
+    "id": "error_parse_yaml",
+    "translation": "فشل في تحليل YAML: {{.Error}}"
+  },
+  {
+    "id": "error_precommit_failed",
+    "translation": "فشلت خطافات ما قبل الالتزام (pre-commit)"
+  },
+  {
+    "id": "error_precommit_missing_config",
+    "translation": "لا يوجد تكوين pre-commit في الالتزام {{.Hash}}"
+  },
+  {
+    "id": "error_precommit_not_configured",
+    "translation": "لم يتم تكوين Pre-commit في HEAD"
+  },
+  {
+    "id": "error_precommit_not_found",
+    "translation": "الملف التنفيذي لـ pre-commit غير موجود في PATH"
+  },
+  {
+    "id": "error_read_rules",
+    "translation": "فشل في قراءة ملف القواعد: {{.Error}}"
+  },
+  {
+    "id": "error_root_list",
+    "translation": "فشل في إدراج ملفات التزام الجذر: {{.Error}}"
+  },
+  {
+    "id": "error_rules_not_found",
+    "translation": "قواعد التسرب غير موجودة، يرجى إنشاء {{.File}}"
+  },
+  {
+    "id": "error_set_encoded",
+    "translation": "فشل في تعيين الكائن المرمز للالتزام الجديد: {{.Error}}"
+  },
+  {
+    "id": "error_stratigraphy_modification",
+    "translation": "يرجى تشغيل 'gitseep' لترتيب علم الطبقات (الالتزام {{.Hash}} يتطلب تعديلاً)"
+  },
+  {
+    "id": "error_surface_validation_failed",
+    "translation": "فشل التحقق من السطح"
+  },
+  {
+    "id": "error_worktree_creation_failed",
+    "translation": "فشل إنشاء شجرة العمل"
+  },
+  {
+    "id": "experimental_danger",
+    "translation": "هذا التنفيذ يحتوي على أخطاء معروفة في الروابط الرمزية (symlinks) وقد يؤدي إلى إتلاف شجرة العمل الخاصة بك."
+  },
+  {
+    "id": "experimental_warning",
+    "translation": "لقد قمت بتمكين ميزة تجريبية: تكامل go-git."
+  },
+  {
+    "id": "failed_amend",
+    "translation": "فشل في تعديل التغييرات: {{.Error}}"
+  },
+  {
+    "id": "failed_check_status",
+    "translation": "فشل في التحقق من حالة المستودع: {{.Error}}"
+  },
+  {
+    "id": "failed_read_linear_commit",
+    "translation": "      ⮑  فشل في قراءة الالتزام الخطي: {{.Error}}"
+  },
+  {
+    "id": "finalizing_reconstruction",
+    "translation": "إنهاء إعادة البناء والترسيب..."
+  },
+  {
+    "id": "headless_summary_status",
+    "translation": "تم نقل {{.Total}} ملفات بنجاح."
+  },
+  {
+    "id": "history_matches_direct",
+    "translation": "[التاريخ متطابق، استخدام الالتزام الخطي مباشرة]"
+  },
+  {
+    "id": "history_sedimented_success",
+    "translation": "اجتاز فحص GitSeep. علم الطبقات مرسب بشكل مثالي."
+  },
+  {
+    "id": "history_staged",
+    "translation": "تم إعداد التاريخ المعاد صياغته على: {{.Branch}}"
+  },
+  {
+    "id": "lithify_label",
+    "translation": "تحجر"
+  },
+  {
+    "id": "loading_context",
+    "translation": "تهيئة السياق وحل التاريخ..."
+  },
+  {
+    "id": "manual_return_info",
+    "translation": "بمجرد العودة إلى مساحة العمل الرئيسية، قم بتطبيق الإصلاحات وأعد تشغيل gitseep."
+  },
+  {
+    "id": "migration_detail",
+    "translation": "إلى صخر الأساس {{.Hash}}: {{.Details}}"
+  },
+  {
+    "id": "migration_detail_simple",
+    "translation": "{{.Details}}"
+  },
+  {
+    "id": "pipeline_discovery",
+    "translation": "🔍 اكتشاف"
+  },
+  {
+    "id": "pipeline_execution",
+    "translation": "⚙️  تنفيذ"
+  },
+  {
+    "id": "pipeline_finalization",
+    "translation": "🏆 إنهاء"
+  },
+  {
+    "id": "pipeline_sedimentation",
+    "translation": "🏞️  ترسيب"
+  },
+  {
+    "id": "pipeline_selection",
+    "translation": "🎯 اختيار"
+  },
+  {
+    "id": "pipeline_validation",
+    "translation": "🧪 تحقق"
+  },
+  {
+    "id": "prefix_debug",
+    "translation": "تصحيح:"
+  },
+  {
+    "id": "prefix_error",
+    "translation": "خطأ:"
+  },
+  {
+    "id": "prefix_warning",
+    "translation": "تحذير:"
+  },
+  {
+    "id": "proceed_prompt",
+    "translation": "هل أنت متأكد أنك تريد الاستمرار؟ [نعم/لا]: "
+  },
+  {
+    "id": "reconstructing_strata",
+    "translation": "إعادة بناء الطبقات: {{.Current}}/{{.Total}}"
+  },
+  {
+    "id": "reconstruction_summary",
+    "translation": "\n{{.Current}}/{{.Total}} {{.Hash}} - {{.Subject}}"
+  },
+  {
+    "id": "report_geological",
+    "translation": "تقرير جيولوجي"
+  },
+  {
+    "id": "report_lithifications",
+    "translation": "عمليات التصلب"
+  },
+  {
+    "id": "report_percolations",
+    "translation": "عمليات الترشيح"
+  },
+  {
+    "id": "report_seeps",
+    "translation": "التسربات"
+  },
+  {
+    "id": "reproduce_label",
+    "translation": "لإعادة الإنتاج، قم بتشغيل:"
+  },
+  {
+    "id": "running_diagnostic_precommit",
+    "translation": "تشغيل فحص ما قبل الالتزام التشخيصي على الملفات الفاشلة..."
+  },
+  {
+    "id": "running_hooks",
+    "translation": "[تشغيل الخطافات...]"
+  },
+  {
+    "id": "scanning_history",
+    "translation": "مسح التاريخ: {{.Current}}/{{.Total}}"
+  },
+  {
+    "id": "sedimentation_success",
+    "translation": "      ⮑  نجاح: {{.Hash}}"
+  },
+  {
+    "id": "sedimenting_branch",
+    "translation": "ترسيب الفرع {{.Current}}/{{.Total}}: {{.Branch}}"
+  },
+  {
+    "id": "selection_confirmed",
+    "translation": "تم تأكيد الاختيار. بدء إعادة بناء التاريخ..."
+  },
+  {
+    "id": "selection_confirmed_label",
+    "translation": "(للقراءة فقط - مؤكد)"
+  },
+  {
+    "id": "selection_empty",
+    "translation": "لا توجد ملفات تتطلب النقل. علم الطبقات في حالة جيدة."
+  },
+  {
+    "id": "selection_instructions",
+    "translation": "استخدم [للأعلى/للأسفل] للتنقل، [المسافة] للتبديل، [C] للتأكيد."
+  },
+  {
+    "id": "selection_status",
+    "translation": "العنصر {{.Current}} من {{.Total}} (تم اختيار {{.Selected}}/{{.Total}})"
+  },
+  {
+    "id": "selection_view_title",
+    "translation": "[عرض الاختيار]"
+  },
+  {
+    "id": "shell_escape_activated",
+    "translation": "🐚 استكشاف الأخطاء وإصلاحها - ملخص وإرشادات"
+  },
+  {
+    "id": "shell_escape_guidance",
+    "translation": "حدد الإصلاح وقم بتطبيقه على فرع المطور الخاص بك. بمجرد الإصلاح، أعد تشغيل gitseep."
+  },
+  {
+    "id": "shell_exit_info",
+    "translation": "\n--- ملخص استكشاف الأخطاء وإصلاحها ---"
+  },
+  {
+    "id": "shell_spawn_info",
+    "translation": "بدء غلاف فرعي (sub-shell) تفاعلي في: {{.Dir}}"
+  },
+  {
+    "id": "shortcut_close_dialog",
+    "translation": "إغلاق المربع الحواري"
+  },
+  {
+    "id": "shortcut_exit",
+    "translation": "خروج"
+  },
+  {
+    "id": "shortcut_navigate",
+    "translation": "تنقل"
+  },
+  {
+    "id": "shortcut_quit",
+    "translation": "خروج"
+  },
+  {
+    "id": "shortcut_scroll",
+    "translation": "تمرير"
+  },
+  {
+    "id": "skipped_label",
+    "translation": "[تم التخطي]"
+  },
+  {
+    "id": "status_complete",
+    "translation": "✅ مكتمل"
+  },
+  {
+    "id": "status_pending",
+    "translation": "قيد الانتظار"
+  },
+  {
+    "id": "status_running",
+    "translation": "قيد التشغيل..."
+  },
+  {
+    "id": "stratigraphy_empty",
+    "translation": "لم يتم تعريف قواعد صخر الأساس في التكوين."
+  },
+  {
+    "id": "stratigraphy_parent_label",
+    "translation": "⮑  الأصل: {{.Parent}}"
+  },
+  {
+    "id": "stratigraphy_success",
+    "translation": "تم التحقق من علم الطبقات بنجاح. لا توجد صراعات رياضية متوقعة."
+  },
+  {
+    "id": "stratigraphy_truncated",
+    "translation": "... (تم اقتطاع المحتوى، راجع .gitseep.yaml للقواعد الكاملة)"
+  },
+  {
+    "id": "stratigraphy_view_title",
+    "translation": "[طبقات التكوين]"
+  },
+  {
+    "id": "summary_empty",
+    "translation": "لم يتم نقل أي ملفات في هذه الجلسة."
+  },
+  {
+    "id": "summary_status",
+    "translation": "العنصر {{.Current}} من {{.Total}} (تم نقل {{.Total}} ملفات بنجاح)"
+  },
+  {
+    "id": "summary_view_title",
+    "translation": "[ملخص النقل]"
+  },
+  {
+    "id": "surface_check_label",
+    "translation": "فحص السطح"
+  },
+  {
+    "id": "surface_validation_success",
+    "translation": "اكتمل التحقق من السطح بنجاح."
+  },
+  {
+    "id": "sync_issue",
+    "translation": "واجهت مزامنة شجرة العمل مشكلات: {{.Error}}"
+  },
+  {
+    "id": "syncing_branch",
+    "translation": "  [{{.Icon}}] مزامنة {{.Branch}} (على {{.Parent}})"
+  },
+  {
+    "id": "tab_logs",
+    "translation": "📋 السجلات"
+  },
+  {
+    "id": "tab_selection",
+    "translation": "🎯 الاختيار"
+  },
+  {
+    "id": "tab_stratigraphy",
+    "translation": "ℹ️  علم الطبقات"
+  },
+  {
+    "id": "tab_summary",
+    "translation": "🏁 الملخص"
+  },
+  {
+    "id": "tab_validation",
+    "translation": "✅ التحقق"
+  },
+  {
+    "id": "time_label",
+    "translation": "🕒 {{.Date}}"
+  },
+  {
+    "id": "tui_header",
+    "translation": "لوحة تحكم GitSeep"
+  },
+  {
+    "id": "usage_clean_whitespace",
+    "translation": "الاستخدام: clean_whitespace <file_or_dir>..."
+  },
+  {
+    "id": "validating_feature_branch",
+    "translation": "التحقق من فرع الميزة"
+  },
+  {
+    "id": "validating_linear_stratum",
+    "translation": "التحقق من الطبقة الخطية"
+  },
+  {
+    "id": "validating_surface",
+    "translation": "التحقق من السطح (HEAD)..."
+  },
+  {
+    "id": "validation_failed",
+    "translation": "❌ فشل التحقق!"
+  },
+  {
+    "id": "validation_failure_cleanup_info",
+    "translation": "للتنظيف يدوياً، قم بتشغيل:"
+  },
+  {
+    "id": "validation_failure_preserved",
+    "translation": "تم الحفاظ على شجرة العمل المعزولة لتصحيح الأخطاء:"
+  },
+  {
+    "id": "validation_failure_shortcuts",
+    "translation": "اضغط على Enter للخروج"
+  },
+  {
+    "id": "validation_failure_title",
+    "translation": "فشل التحقق"
+  },
+  {
+    "id": "validation_gravity_label",
+    "translation": "التحقق من القمم الحديثة إلى القواعد التاريخية"
+  },
+  {
+    "id": "validation_not_started",
+    "translation": "التحقق لم يبدأ بعد."
+  },
+  {
+    "id": "validation_status",
+    "translation": "جارٍ التحقق: {{.Bar}} {{.Percent}}% ({{.Completed}}/{{.Total}})"
+  },
+  {
+    "id": "validation_view_title",
+    "translation": "[عرض التحقق]"
+  },
+  {
+    "id": "waiting_discovery",
+    "translation": "في انتظار نتائج الاكتشاف..."
+  },
+  {
+    "id": "waiting_for_reconstruction",
+    "translation": "في انتظار إعادة بناء التاريخ..."
+  },
+  {
+    "id": "worktree_dirty",
+    "translation": "شجرة العمل تحتوي على تغييرات غير ملتزم بها؛ استخدم --amend أو قم بتخزينها (stash) قبل تشغيل gitseep"
+  },
+  {
+    "id": "worktree_untracked",
+    "translation": "تحتوي شجرة العمل على ملفات غير متتبعة؛ سيتم تجاهلها بواسطة GitSeep"
+  }
+]

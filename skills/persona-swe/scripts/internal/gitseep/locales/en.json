@@ -1,0 +1,590 @@
+[
+  {
+    "id": "aborted",
+    "translation": "Aborted."
+  },
+  {
+    "id": "already_sedimented",
+    "translation": "[Already sedimented]"
+  },
+  {
+    "id": "already_validated",
+    "translation": "Already validated"
+  },
+  {
+    "id": "amending_uncommitted",
+    "translation": "Amending uncommitted changes into the surface stratum..."
+  },
+  {
+    "id": "base_ref_name",
+    "translation": "base"
+  },
+  {
+    "id": "base_ref_skipped",
+    "translation": "Base stratum anchor"
+  },
+  {
+    "id": "branch_updated",
+    "translation": "Branch '{{.Branch}}' has been updated."
+  },
+  {
+    "id": "capturing_sediment",
+    "translation": "  [{{.Icon}}] Capturing sediment for '{{.Path}}'"
+  },
+  {
+    "id": "clean_whitespace_fixed",
+    "translation": "Fixed: {{.Path}}"
+  },
+  {
+    "id": "clean_whitespace_summary",
+    "translation": "\n⚠️  Cleaned trailing whitespace/EOF in {{.Count}} files."
+  },
+  {
+    "id": "cleanup_instructions",
+    "translation": "cd {{.OldCwd}} && git worktree remove --force {{.Dir}}"
+  },
+  {
+    "id": "cleanup_instructions_header",
+    "translation": "To cleanup:"
+  },
+  {
+    "id": "debug_parent_not_found",
+    "translation": "parent {{.Hash}} not found in history"
+  },
+  {
+    "id": "error_build_sediment_tree",
+    "translation": "failed to build sediment tree: {{.Error}}"
+  },
+  {
+    "id": "error_build_tree",
+    "translation": "failed to build tree for {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_checkout_failed",
+    "translation": "failed to checkout {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_commit_object",
+    "translation": "failed to get commit object for {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_commit_tree",
+    "translation": "failed to get commit tree: {{.Error}}"
+  },
+  {
+    "id": "error_conflict_predicted",
+    "translation": "conflict predicted: branch '{{.Branch}}' (bedrock {{.Bedrock}}) modifies files also touched by skipped stratum {{.Stratum}}, files: {{.Files}} - update your dependencies in .gitseep.yaml to resolve this conflict"
+  },
+  {
+    "id": "error_dependency_cycle",
+    "translation": "dependency cycle detected: {{.Cycle}}"
+  },
+  {
+    "id": "error_diff_tree",
+    "translation": "failed to diff tree for commit {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_diff_trees",
+    "translation": "failed to diff trees: {{.Error}}"
+  },
+  {
+    "id": "error_encode_commit",
+    "translation": "failed to encode new commit: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_clean",
+    "translation": "failed to clean {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_stat",
+    "translation": "failed to stat {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_walk",
+    "translation": "failed to walk directory {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_find_commit",
+    "translation": "failed to find commit {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_get_parent",
+    "translation": "failed to get parent commit: {{.Error}}"
+  },
+  {
+    "id": "error_get_tree",
+    "translation": "failed to get tree for commit {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_head_commit",
+    "translation": "failed to get original HEAD commit: {{.Error}}"
+  },
+  {
+    "id": "error_head_files",
+    "translation": "failed to get files for original HEAD: {{.Error}}"
+  },
+  {
+    "id": "error_head_tree",
+    "translation": "failed to get tree for original HEAD: {{.Error}}"
+  },
+  {
+    "id": "error_hide_experimental_flag",
+    "translation": "failed to hide experimental flag: {{.Error}}"
+  },
+  {
+    "id": "error_invalid_base",
+    "translation": "invalid base commit or reference {{.Base}}: {{.Error}}"
+  },
+  {
+    "id": "error_invalid_rule_format",
+    "translation": "invalid rule format for key {{.Key}}"
+  },
+  {
+    "id": "error_isolated_worktree_failed",
+    "translation": "failed to create isolated worktree: {{.Error}}\nOutput: {{.Output}}"
+  },
+  {
+    "id": "error_no_commits_for_date",
+    "translation": "no commits found for date {{.Date}} in current branch history"
+  },
+  {
+    "id": "error_orig_commit",
+    "translation": "failed to get original commit {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_orig_files",
+    "translation": "failed to get files for original commit {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_orig_tree",
+    "translation": "failed to get tree for original commit {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_commit",
+    "translation": "failed to get parent commit {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_files",
+    "translation": "failed to get files for parent commit {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_tree",
+    "translation": "failed to get parent tree: {{.Error}}"
+  },
+  {
+    "id": "error_parse_yaml",
+    "translation": "failed to parse YAML: {{.Error}}"
+  },
+  {
+    "id": "error_precommit_failed",
+    "translation": "pre-commit hooks failed"
+  },
+  {
+    "id": "error_precommit_missing_config",
+    "translation": "no pre-commit config in commit {{.Hash}}"
+  },
+  {
+    "id": "error_precommit_not_configured",
+    "translation": "pre-commit not configured in HEAD"
+  },
+  {
+    "id": "error_precommit_not_found",
+    "translation": "pre-commit executable not found in PATH"
+  },
+  {
+    "id": "error_read_rules",
+    "translation": "failed to read rules file: {{.Error}}"
+  },
+  {
+    "id": "error_root_list",
+    "translation": "failed to list root commit files: {{.Error}}"
+  },
+  {
+    "id": "error_rules_not_found",
+    "translation": "seepage rules not found, please create {{.File}}"
+  },
+  {
+    "id": "error_set_encoded",
+    "translation": "failed to set encoded object for new commit: {{.Error}}"
+  },
+  {
+    "id": "error_stratigraphy_modification",
+    "translation": "please run 'gitseep' to bring the stratigraphy in order (commit {{.Hash}} requires modification)"
+  },
+  {
+    "id": "error_surface_validation_failed",
+    "translation": "surface validation failed"
+  },
+  {
+    "id": "error_worktree_creation_failed",
+    "translation": "worktree creation failed"
+  },
+  {
+    "id": "experimental_danger",
+    "translation": "This implementation has known bugs with symlinks and can corrupt your worktree."
+  },
+  {
+    "id": "experimental_warning",
+    "translation": "You have enabled an experimental feature: go-git integration."
+  },
+  {
+    "id": "failed_amend",
+    "translation": "failed to amend changes: {{.Error}}"
+  },
+  {
+    "id": "failed_check_status",
+    "translation": "failed to check repository status: {{.Error}}"
+  },
+  {
+    "id": "failed_read_linear_commit",
+    "translation": "      ⮑  failed to read linear commit: {{.Error}}"
+  },
+  {
+    "id": "finalizing_reconstruction",
+    "translation": "Finalizing reconstruction and sedimentation..."
+  },
+  {
+    "id": "headless_summary_status",
+    "translation": "{{.Total}} files successfully migrated."
+  },
+  {
+    "id": "history_matches_direct",
+    "translation": "[History matches, using linear commit directly]"
+  },
+  {
+    "id": "history_sedimented_success",
+    "translation": "GitSeep check passed. Stratigraphy is perfectly sedimented."
+  },
+  {
+    "id": "history_staged",
+    "translation": "Refactored history prepared on: gitseep-staged"
+  },
+  {
+    "id": "lithify_label",
+    "translation": "Lithify"
+  },
+  {
+    "id": "loading_context",
+    "translation": "Initializing context and resolving history..."
+  },
+  {
+    "id": "manual_return_info",
+    "translation": "Once back in your main workspace, apply the fixes and re-run gitseep."
+  },
+  {
+    "id": "migration_detail",
+    "translation": "to Bedrock {{.Hash}}: {{.Details}}"
+  },
+  {
+    "id": "migration_detail_simple",
+    "translation": "{{.Details}}"
+  },
+  {
+    "id": "pipeline_discovery",
+    "translation": "🔍 Discovery"
+  },
+  {
+    "id": "pipeline_execution",
+    "translation": "⚙️  Execution"
+  },
+  {
+    "id": "pipeline_finalization",
+    "translation": "🏆 Finalization"
+  },
+  {
+    "id": "pipeline_sedimentation",
+    "translation": "🏞️  Sedimentation"
+  },
+  {
+    "id": "pipeline_selection",
+    "translation": "🎯 Selection"
+  },
+  {
+    "id": "pipeline_validation",
+    "translation": "🧪 Validation"
+  },
+  {
+    "id": "prefix_debug",
+    "translation": "debug:"
+  },
+  {
+    "id": "prefix_error",
+    "translation": "error:"
+  },
+  {
+    "id": "prefix_warning",
+    "translation": "warning:"
+  },
+  {
+    "id": "proceed_prompt",
+    "translation": "Are you sure you want to proceed? [YES/NO]: "
+  },
+  {
+    "id": "reconstructing_strata",
+    "translation": "reconstructing strata: {{.Current}}/{{.Total}} [{{.Hash}}] - {{.Subject}}"
+  },
+  {
+    "id": "reconstruction_summary",
+    "translation": "\n{{.Current}}/{{.Total}} {{.Hash}} - {{.Subject}}"
+  },
+  {
+    "id": "report_geological",
+    "translation": "Geological Report"
+  },
+  {
+    "id": "report_lithifications",
+    "translation": "Lithifications"
+  },
+  {
+    "id": "report_percolations",
+    "translation": "Percolations"
+  },
+  {
+    "id": "report_seeps",
+    "translation": "Seeps"
+  },
+  {
+    "id": "reproduce_label",
+    "translation": "To reproduce run:"
+  },
+  {
+    "id": "running_diagnostic_precommit",
+    "translation": "Running diagnostic pre-commit on failed files..."
+  },
+  {
+    "id": "running_hooks",
+    "translation": "[Running hooks...]"
+  },
+  {
+    "id": "scanning_history",
+    "translation": "scanning history: {{.Current}}/{{.Total}} [{{.Hash}}] - {{.Subject}}"
+  },
+  {
+    "id": "sedimentation_success",
+    "translation": "      ⮑  Success: {{.Hash}}"
+  },
+  {
+    "id": "sedimenting_branch",
+    "translation": "sedimenting branch {{.Current}}/{{.Total}} ({{.Branch}})"
+  },
+  {
+    "id": "selection_confirmed",
+    "translation": "Selection confirmed. Commencing history reconstruction..."
+  },
+  {
+    "id": "selection_confirmed_label",
+    "translation": "(Read-only - Confirmed)"
+  },
+  {
+    "id": "selection_empty",
+    "translation": "No files require migration. Stratigraphy is in order."
+  },
+  {
+    "id": "selection_instructions",
+    "translation": "Use [UP/DOWN] to navigate, [SPACE] to toggle, [C] to CONFIRM."
+  },
+  {
+    "id": "selection_status",
+    "translation": "Item {{.Current}} of {{.Total}} ({{.Selected}}/{{.Total}} selected)"
+  },
+  {
+    "id": "selection_view_title",
+    "translation": "[Selection View]"
+  },
+  {
+    "id": "shell_escape_activated",
+    "translation": "🐚 Troubleshooting - Summary and guidance"
+  },
+  {
+    "id": "shell_escape_guidance",
+    "translation": "Identify the fix and apply it to your developer branch. Once fixed, re-run gitseep."
+  },
+  {
+    "id": "shell_exit_info",
+    "translation": "\n--- Troubleshooting Summary ---"
+  },
+  {
+    "id": "shell_spawn_info",
+    "translation": "Spawning interactive sub-shell in: {{.Dir}}"
+  },
+  {
+    "id": "shortcut_close_dialog",
+    "translation": "Close Dialog"
+  },
+  {
+    "id": "shortcut_exit",
+    "translation": "Exit"
+  },
+  {
+    "id": "shortcut_navigate",
+    "translation": "Navigate"
+  },
+  {
+    "id": "shortcut_quit",
+    "translation": "Quit"
+  },
+  {
+    "id": "shortcut_scroll",
+    "translation": "Scroll"
+  },
+  {
+    "id": "skipped_label",
+    "translation": "[Skipped]"
+  },
+  {
+    "id": "status_complete",
+    "translation": "✅ Complete"
+  },
+  {
+    "id": "status_pending",
+    "translation": "Pending"
+  },
+  {
+    "id": "status_running",
+    "translation": "Running..."
+  },
+  {
+    "id": "stratigraphy_empty",
+    "translation": "No bedrock rules defined in configuration."
+  },
+  {
+    "id": "stratigraphy_parent_label",
+    "translation": "⮑  Parent: {{.Parent}}"
+  },
+  {
+    "id": "stratigraphy_success",
+    "translation": "Stratigraphy validated successfully. No mathematical conflicts predicted."
+  },
+  {
+    "id": "stratigraphy_truncated",
+    "translation": "... (content truncated, see .gitseep.yaml for full rules)"
+  },
+  {
+    "id": "stratigraphy_view_title",
+    "translation": "[Configuration Stratigraphy]"
+  },
+  {
+    "id": "summary_empty",
+    "translation": "No files were migrated in this session."
+  },
+  {
+    "id": "summary_status",
+    "translation": "Item {{.Current}} of {{.Total}} ({{.Total}} files successfully migrated)"
+  },
+  {
+    "id": "summary_view_title",
+    "translation": "[Migration Summary]"
+  },
+  {
+    "id": "surface_check_label",
+    "translation": "Surface Check"
+  },
+  {
+    "id": "surface_validation_success",
+    "translation": "Surface validation completed successfully."
+  },
+  {
+    "id": "sync_issue",
+    "translation": "Worktree synchronization encountered issues: {{.Error}}"
+  },
+  {
+    "id": "syncing_branch",
+    "translation": "  [{{.Icon}}] Syncing {{.Branch}} (onto {{.Parent}})"
+  },
+  {
+    "id": "tab_logs",
+    "translation": "📋 Logs"
+  },
+  {
+    "id": "tab_selection",
+    "translation": "🎯 Selection"
+  },
+  {
+    "id": "tab_stratigraphy",
+    "translation": "ℹ️  Stratigraphy"
+  },
+  {
+    "id": "tab_summary",
+    "translation": "🏁 Summary"
+  },
+  {
+    "id": "tab_validation",
+    "translation": "✅ Validation"
+  },
+  {
+    "id": "time_label",
+    "translation": "🕒 {{.Date}}"
+  },
+  {
+    "id": "tui_header",
+    "translation": "GitSeep Dashboard"
+  },
+  {
+    "id": "usage_clean_whitespace",
+    "translation": "Usage: clean_whitespace <file_or_dir>..."
+  },
+  {
+    "id": "validating_feature_branch",
+    "translation": "validating feature branch {{.Current}}/{{.Total}} [{{.Hash}}] ({{.Branch}})"
+  },
+  {
+    "id": "validating_linear_stratum",
+    "translation": "validating linear stratum {{.Current}}/{{.Total}} [{{.Hash}}]"
+  },
+  {
+    "id": "validating_surface",
+    "translation": "validating workspace surface [{{.Hash}}] (HEAD)"
+  },
+  {
+    "id": "validation_failed",
+    "translation": "❌ Validation failed!"
+  },
+  {
+    "id": "validation_failure_cleanup_info",
+    "translation": "To cleanup manually, run:"
+  },
+  {
+    "id": "validation_failure_preserved",
+    "translation": "Isolated worktree preserved for debugging:"
+  },
+  {
+    "id": "validation_failure_shortcuts",
+    "translation": "Press Enter to exit"
+  },
+  {
+    "id": "validation_failure_title",
+    "translation": "VALIDATION FAILED"
+  },
+  {
+    "id": "validation_gravity_label",
+    "translation": "Validating from modern tips to historical foundations"
+  },
+  {
+    "id": "validation_not_started",
+    "translation": "Validation has not started yet."
+  },
+  {
+    "id": "validation_status",
+    "translation": "Validating: {{.Bar}} {{.Percent}}% ({{.Completed}}/{{.Total}})"
+  },
+  {
+    "id": "validation_view_title",
+    "translation": "[Validation View]"
+  },
+  {
+    "id": "waiting_discovery",
+    "translation": "Waiting for Discovery results..."
+  },
+  {
+    "id": "waiting_for_reconstruction",
+    "translation": "Waiting for history reconstruction..."
+  },
+  {
+    "id": "worktree_dirty",
+    "translation": "worktree has uncommitted changes; use --amend or stash them before running gitseep"
+  },
+  {
+    "id": "worktree_untracked",
+    "translation": "Worktree has untracked files; these will be ignored by GitSeep"
+  }
+]

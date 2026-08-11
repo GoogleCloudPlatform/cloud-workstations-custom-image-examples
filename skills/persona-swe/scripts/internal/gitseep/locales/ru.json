@@ -1,0 +1,590 @@
+[
+  {
+    "id": "aborted",
+    "translation": "Прервано."
+  },
+  {
+    "id": "already_sedimented",
+    "translation": "[Уже осаждено]"
+  },
+  {
+    "id": "already_validated",
+    "translation": "Уже проверено"
+  },
+  {
+    "id": "amending_uncommitted",
+    "translation": "Внесение незафиксированных изменений в поверхностный пласт..."
+  },
+  {
+    "id": "base_ref_name",
+    "translation": "основание"
+  },
+  {
+    "id": "base_ref_skipped",
+    "translation": "Якорь базового пласта"
+  },
+  {
+    "id": "branch_updated",
+    "translation": "Ветка '{{.Branch}}' была обновлена."
+  },
+  {
+    "id": "capturing_sediment",
+    "translation": "  [{{.Icon}}] Захват отложений для '{{.Path}}'"
+  },
+  {
+    "id": "clean_whitespace_fixed",
+    "translation": "Исправлено: {{.Path}}"
+  },
+  {
+    "id": "clean_whitespace_summary",
+    "translation": "\n⚠️  Очищены конечные пробелы/EOF в {{.Count}} файлах."
+  },
+  {
+    "id": "cleanup_instructions",
+    "translation": "cd {{.OldCwd}} && git worktree remove --force {{.Dir}}"
+  },
+  {
+    "id": "cleanup_instructions_header",
+    "translation": "Для очистки:"
+  },
+  {
+    "id": "debug_parent_not_found",
+    "translation": "родитель {{.Hash}} не найден в истории"
+  },
+  {
+    "id": "error_build_sediment_tree",
+    "translation": "не удалось собрать дерево отложений: {{.Error}}"
+  },
+  {
+    "id": "error_build_tree",
+    "translation": "не удалось собрать дерево для {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_checkout_failed",
+    "translation": "не удалось выполнить checkout {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_commit_object",
+    "translation": "не удалось получить объект коммита для {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_commit_tree",
+    "translation": "не удалось получить дерево коммитов: {{.Error}}"
+  },
+  {
+    "id": "error_conflict_predicted",
+    "translation": "предсказан конфликт: ветка '{{.Branch}}' (основание {{.Bedrock}}) изменяет файлы, также затронутые пропущенным пластом {{.Stratum}}, файлы: {{.Files}} - обновите ваши зависимости в .gitseep.yaml, чтобы разрешить этот конфликт"
+  },
+  {
+    "id": "error_dependency_cycle",
+    "translation": "обнаружен цикл зависимостей: {{.Cycle}}"
+  },
+  {
+    "id": "error_diff_tree",
+    "translation": "не удалось получить diff tree для коммита {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_diff_trees",
+    "translation": "не удалось сравнить деревья: {{.Error}}"
+  },
+  {
+    "id": "error_encode_commit",
+    "translation": "не удалось закодировать новый коммит: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_clean",
+    "translation": "не удалось очистить {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_stat",
+    "translation": "не удалось выполнить stat {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_failed_to_walk",
+    "translation": "не удалось обойти каталог {{.Path}}: {{.Error}}"
+  },
+  {
+    "id": "error_find_commit",
+    "translation": "не удалось найти коммит {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_get_parent",
+    "translation": "не удалось получить родительский коммит: {{.Error}}"
+  },
+  {
+    "id": "error_get_tree",
+    "translation": "не удалось получить дерево для коммита {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_head_commit",
+    "translation": "не удалось получить исходный HEAD коммит: {{.Error}}"
+  },
+  {
+    "id": "error_head_files",
+    "translation": "не удалось получить файлы для исходного HEAD: {{.Error}}"
+  },
+  {
+    "id": "error_head_tree",
+    "translation": "не удалось получить дерево для исходного HEAD: {{.Error}}"
+  },
+  {
+    "id": "error_hide_experimental_flag",
+    "translation": "не удалось скрыть экспериментальный флаг: {{.Error}}"
+  },
+  {
+    "id": "error_invalid_base",
+    "translation": "недопустимый базовый коммит или ссылка {{.Base}}: {{.Error}}"
+  },
+  {
+    "id": "error_invalid_rule_format",
+    "translation": "недопустимый формат правила для ключа {{.Key}}"
+  },
+  {
+    "id": "error_isolated_worktree_failed",
+    "translation": "не удалось создать изолированное рабочее дерево: {{.Error}}\nВывод: {{.Output}}"
+  },
+  {
+    "id": "error_no_commits_for_date",
+    "translation": "в истории текущей ветки не найдено коммитов за дату {{.Date}}"
+  },
+  {
+    "id": "error_orig_commit",
+    "translation": "не удалось получить исходный коммит {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_orig_files",
+    "translation": "не удалось получить файлы для исходного коммита {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_orig_tree",
+    "translation": "не удалось получить дерево для исходного коммита {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_commit",
+    "translation": "не удалось получить родительский коммит {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_files",
+    "translation": "не удалось получить файлы для родительского коммита {{.Hash}}: {{.Error}}"
+  },
+  {
+    "id": "error_parent_tree",
+    "translation": "не удалось получить родительское дерево: {{.Error}}"
+  },
+  {
+    "id": "error_parse_yaml",
+    "translation": "не удалось разобрать YAML: {{.Error}}"
+  },
+  {
+    "id": "error_precommit_failed",
+    "translation": "ошибка хуков pre-commit"
+  },
+  {
+    "id": "error_precommit_missing_config",
+    "translation": "нет конфигурации pre-commit в коммите {{.Hash}}"
+  },
+  {
+    "id": "error_precommit_not_configured",
+    "translation": "pre-commit не настроен в HEAD"
+  },
+  {
+    "id": "error_precommit_not_found",
+    "translation": "исполняемый файл pre-commit не найден в PATH"
+  },
+  {
+    "id": "error_read_rules",
+    "translation": "не удалось прочитать файл правил: {{.Error}}"
+  },
+  {
+    "id": "error_root_list",
+    "translation": "не удалось перечислить файлы корневого коммита: {{.Error}}"
+  },
+  {
+    "id": "error_rules_not_found",
+    "translation": "правила просачивания не найдены, пожалуйста, создайте {{.File}}"
+  },
+  {
+    "id": "error_set_encoded",
+    "translation": "не удалось установить закодированный объект для нового коммита: {{.Error}}"
+  },
+  {
+    "id": "error_stratigraphy_modification",
+    "translation": "пожалуйста, запустите 'gitseep', чтобы привести стратиграфию в порядок (коммит {{.Hash}} требует модификации)"
+  },
+  {
+    "id": "error_surface_validation_failed",
+    "translation": "валидация поверхности не удалась"
+  },
+  {
+    "id": "error_worktree_creation_failed",
+    "translation": "не удалось создать рабочее дерево"
+  },
+  {
+    "id": "experimental_danger",
+    "translation": "Эта реализация содержит известные ошибки с символическими ссылками и может повредить ваше рабочее дерево."
+  },
+  {
+    "id": "experimental_warning",
+    "translation": "Вы включили экспериментальную функцию: интеграция с go-git."
+  },
+  {
+    "id": "failed_amend",
+    "translation": "не удалось внести изменения: {{.Error}}"
+  },
+  {
+    "id": "failed_check_status",
+    "translation": "не удалось проверить статус репозитория: {{.Error}}"
+  },
+  {
+    "id": "failed_read_linear_commit",
+    "translation": "      ⮑  не удалось прочитать линейный коммит: {{.Error}}"
+  },
+  {
+    "id": "finalizing_reconstruction",
+    "translation": "Завершение реконструкции и осаждения..."
+  },
+  {
+    "id": "headless_summary_status",
+    "translation": "{{.Total}} файлов успешно перенесено."
+  },
+  {
+    "id": "history_matches_direct",
+    "translation": "[История совпадает, используется линейный коммит напрямую]"
+  },
+  {
+    "id": "history_sedimented_success",
+    "translation": "Проверка GitSeep пройдена. Стратиграфия идеально осаждена."
+  },
+  {
+    "id": "history_staged",
+    "translation": "Рефакторинговая история подготовлена в: {{.Branch}}"
+  },
+  {
+    "id": "lithify_label",
+    "translation": "Окаменение"
+  },
+  {
+    "id": "loading_context",
+    "translation": "Инициализация контекста и разрешение истории..."
+  },
+  {
+    "id": "manual_return_info",
+    "translation": "Вернувшись в основное рабочее пространство, примените исправления и перезапустите gitseep."
+  },
+  {
+    "id": "migration_detail",
+    "translation": "к основанию {{.Hash}}: {{.Details}}"
+  },
+  {
+    "id": "migration_detail_simple",
+    "translation": "{{.Details}}"
+  },
+  {
+    "id": "pipeline_discovery",
+    "translation": "🔍 Обнаружение"
+  },
+  {
+    "id": "pipeline_execution",
+    "translation": "⚙️  Выполнение"
+  },
+  {
+    "id": "pipeline_finalization",
+    "translation": "🏆 Завершение"
+  },
+  {
+    "id": "pipeline_sedimentation",
+    "translation": "🏞️  Осаждение"
+  },
+  {
+    "id": "pipeline_selection",
+    "translation": "🎯 Выбор"
+  },
+  {
+    "id": "pipeline_validation",
+    "translation": "🧪 Валидация"
+  },
+  {
+    "id": "prefix_debug",
+    "translation": "отладка:"
+  },
+  {
+    "id": "prefix_error",
+    "translation": "ошибка:"
+  },
+  {
+    "id": "prefix_warning",
+    "translation": "предупреждение:"
+  },
+  {
+    "id": "proceed_prompt",
+    "translation": "Вы уверены, что хотите продолжить? [ДА/НЕТ]: "
+  },
+  {
+    "id": "reconstructing_strata",
+    "translation": "Реконструкция пластов: {{.Current}}/{{.Total}}"
+  },
+  {
+    "id": "reconstruction_summary",
+    "translation": "\n{{.Current}}/{{.Total}} {{.Hash}} - {{.Subject}}"
+  },
+  {
+    "id": "report_geological",
+    "translation": "Геологический отчет"
+  },
+  {
+    "id": "report_lithifications",
+    "translation": "Литификации"
+  },
+  {
+    "id": "report_percolations",
+    "translation": "Перколяции"
+  },
+  {
+    "id": "report_seeps",
+    "translation": "Просачивания"
+  },
+  {
+    "id": "reproduce_label",
+    "translation": "Для воспроизведения запустите:"
+  },
+  {
+    "id": "running_diagnostic_precommit",
+    "translation": "Запуск диагностического pre-commit для файлов с ошибками..."
+  },
+  {
+    "id": "running_hooks",
+    "translation": "[Запуск хуков...]"
+  },
+  {
+    "id": "scanning_history",
+    "translation": "Сканирование истории: {{.Current}}/{{.Total}}"
+  },
+  {
+    "id": "sedimentation_success",
+    "translation": "      ⮑  Успешно: {{.Hash}}"
+  },
+  {
+    "id": "sedimenting_branch",
+    "translation": "Осаждение ветки {{.Current}}/{{.Total}}: {{.Branch}}"
+  },
+  {
+    "id": "selection_confirmed",
+    "translation": "Выбор подтвержден. Начало реконструкции истории..."
+  },
+  {
+    "id": "selection_confirmed_label",
+    "translation": "(Только для чтения - Подтверждено)"
+  },
+  {
+    "id": "selection_empty",
+    "translation": "Миграция файлов не требуется. Стратиграфия в порядке."
+  },
+  {
+    "id": "selection_instructions",
+    "translation": "Используйте [ВВЕРХ/ВНИЗ] для навигации, [ПРОБЕЛ] для переключения, [C] для ПОДТВЕРЖДЕНИЯ."
+  },
+  {
+    "id": "selection_status",
+    "translation": "Элемент {{.Current}} из {{.Total}} (выбрано {{.Selected}}/{{.Total}})"
+  },
+  {
+    "id": "selection_view_title",
+    "translation": "[Вид выбора]"
+  },
+  {
+    "id": "shell_escape_activated",
+    "translation": "🐚 Поиск и устранение неисправностей - Сводка и руководство"
+  },
+  {
+    "id": "shell_escape_guidance",
+    "translation": "Найдите исправление и примените его к своей ветке разработчика. После исправления перезапустите gitseep."
+  },
+  {
+    "id": "shell_exit_info",
+    "translation": "\n--- Сводка по устранению неисправностей ---"
+  },
+  {
+    "id": "shell_spawn_info",
+    "translation": "Запуск интерактивной под-оболочки в: {{.Dir}}"
+  },
+  {
+    "id": "shortcut_close_dialog",
+    "translation": "Закрыть диалог"
+  },
+  {
+    "id": "shortcut_exit",
+    "translation": "Выход"
+  },
+  {
+    "id": "shortcut_navigate",
+    "translation": "Навигация"
+  },
+  {
+    "id": "shortcut_quit",
+    "translation": "Выход"
+  },
+  {
+    "id": "shortcut_scroll",
+    "translation": "Прокрутка"
+  },
+  {
+    "id": "skipped_label",
+    "translation": "[Пропущено]"
+  },
+  {
+    "id": "status_complete",
+    "translation": "✅ Завершено"
+  },
+  {
+    "id": "status_pending",
+    "translation": "В ожидании"
+  },
+  {
+    "id": "status_running",
+    "translation": "Выполняется..."
+  },
+  {
+    "id": "stratigraphy_empty",
+    "translation": "В конфигурации не определены правила основания."
+  },
+  {
+    "id": "stratigraphy_parent_label",
+    "translation": "⮑  Родитель: {{.Parent}}"
+  },
+  {
+    "id": "stratigraphy_success",
+    "translation": "Стратиграфия успешно проверена. Математических конфликтов не предвидится."
+  },
+  {
+    "id": "stratigraphy_truncated",
+    "translation": "... (содержимое обрезано, полные правила см. в .gitseep.yaml)"
+  },
+  {
+    "id": "stratigraphy_view_title",
+    "translation": "[Стратиграфия конфигурации]"
+  },
+  {
+    "id": "summary_empty",
+    "translation": "В ходе этого сеанса файлы не переносились."
+  },
+  {
+    "id": "summary_status",
+    "translation": "Элемент {{.Current}} из {{.Total}} ({{.Total}} файлов успешно перенесено)"
+  },
+  {
+    "id": "summary_view_title",
+    "translation": "[Итоги миграции]"
+  },
+  {
+    "id": "surface_check_label",
+    "translation": "Проверка поверхности"
+  },
+  {
+    "id": "surface_validation_success",
+    "translation": "Валидация поверхности успешно завершена."
+  },
+  {
+    "id": "sync_issue",
+    "translation": "При синхронизации рабочего дерева возникли проблемы: {{.Error}}"
+  },
+  {
+    "id": "syncing_branch",
+    "translation": "  [{{.Icon}}] Синхронизация {{.Branch}} (на {{.Parent}})"
+  },
+  {
+    "id": "tab_logs",
+    "translation": "📋 Журналы"
+  },
+  {
+    "id": "tab_selection",
+    "translation": "🎯 Выбор"
+  },
+  {
+    "id": "tab_stratigraphy",
+    "translation": "ℹ️  Стратиграфия"
+  },
+  {
+    "id": "tab_summary",
+    "translation": "🏁 Итог"
+  },
+  {
+    "id": "tab_validation",
+    "translation": "✅ Валидация"
+  },
+  {
+    "id": "time_label",
+    "translation": "🕒 {{.Date}}"
+  },
+  {
+    "id": "tui_header",
+    "translation": "Панель управления GitSeep"
+  },
+  {
+    "id": "usage_clean_whitespace",
+    "translation": "Использование: clean_whitespace <файл_или_каталог>..."
+  },
+  {
+    "id": "validating_feature_branch",
+    "translation": "Валидация тематической ветки"
+  },
+  {
+    "id": "validating_linear_stratum",
+    "translation": "Валидация линейного пласта"
+  },
+  {
+    "id": "validating_surface",
+    "translation": "Валидация поверхности (HEAD)..."
+  },
+  {
+    "id": "validation_failed",
+    "translation": "❌ Валидация не удалась!"
+  },
+  {
+    "id": "validation_failure_cleanup_info",
+    "translation": "Чтобы выполнить очистку вручную, запустите:"
+  },
+  {
+    "id": "validation_failure_preserved",
+    "translation": "Изолированное рабочее дерево сохранено для отладки:"
+  },
+  {
+    "id": "validation_failure_shortcuts",
+    "translation": "Нажмите Enter для выхода"
+  },
+  {
+    "id": "validation_failure_title",
+    "translation": "ВАЛИДАЦИЯ НЕ УДАЛАСЬ"
+  },
+  {
+    "id": "validation_gravity_label",
+    "translation": "Валидация от современных вершин к историческим основаниям"
+  },
+  {
+    "id": "validation_not_started",
+    "translation": "Валидация еще не началась."
+  },
+  {
+    "id": "validation_status",
+    "translation": "Валидация: {{.Bar}} {{.Percent}}% ({{.Completed}}/{{.Total}})"
+  },
+  {
+    "id": "validation_view_title",
+    "translation": "[Вид валидации]"
+  },
+  {
+    "id": "waiting_discovery",
+    "translation": "Ожидание результатов обнаружения..."
+  },
+  {
+    "id": "waiting_for_reconstruction",
+    "translation": "Ожидание реконструкции истории..."
+  },
+  {
+    "id": "worktree_dirty",
+    "translation": "в рабочем дереве есть незафиксированные изменения; используйте --amend или stash перед запуском gitseep"
+  },
+  {
+    "id": "worktree_untracked",
+    "translation": "В рабочем дереве есть неотслеживаемые файлы; они будут проигнорированы GitSeep"
+  }
+]

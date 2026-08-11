@@ -1,0 +1,89 @@
+# GitSeep: Geological Source Code History Percolation Rules
+#
+# History isn't just a line; it's a geological stack.
+# When we commit, we add a new layer (stratum).
+# Often, a change made at the surface (HEAD) actually belongs deep in a lower stratum.
+# Sometimes, a change made in a lower stratum better belongs to an upper stratum commit.
+#
+# This file defines the "Permeability Rules" for the Source Code History Orchestrator.
+# Mapping: Bedrock Author Date -> List of owned paths OR Dictionary with `branch`, `parent`, and `paths`
+#
+# All changes to these paths from other commits will either:
+# 1. Percolate DOWN through intermediate layers to settle into an older Bedrock.
+# 2. Seep UP through intermediate layers to settle into a newer Bedrock.
+# 3. Sediment (Sync) into feature branches if a `branch` is specified, automatically
+#    building Stacked PRs if a `parent` branch is defined.
+# 4. Lithify (Squash) multiple historical versions into a single Bedrock record.
+#
+# Note: If multiple rules overlap, the most specific (longest) path always wins!
+# The order of rules and the paths in this files does not matter.
+# GitSeep features a "Zero-Mutation Guarantee": no new commits or branch updates
+# are generated if no files actually percolated or sedimented.
+
+config:
+  base_ref: origin/main
+
+# Android Studio for Platform (ASfP) Custom Image
+"2026-04-14 17:36:44 +0000":
+  branch: feat/android-studio-for-platform
+  parent: feat/gnome
+  paths:
+  - demos/android-automotive/README.md
+  - examples/images/android-studio-for-platform/
+  - README.md
+
+# GNOME Remote Desktop Blueprint
+"2026-04-13 10:01:55 +0000":
+  branch: feat/gnome
+  parent: feat/preflight
+  paths:
+  - examples/images/gnome/
+
+# Preflight Startup Website
+"2026-04-13 09:51:16 +0000":
+  branch: feat/preflight
+  parent: chore/gnome-novnc
+  paths:
+  - examples/preflight/
+
+# GNOME with noVNC and TigerVNC
+"2026-04-13 08:25:58 +0000":
+  branch: chore/gnome-novnc
+  parent: feat/skaffold
+  paths:
+  - examples/images/android/android-studio/Dockerfile
+  - examples/images/gnome/noVnc/
+  - examples/images/gnome-novnc/
+
+# pre-commit config and context-specific agent instructions
+"2026-04-13 10:06:24 +0000":
+  branch: docs/agents-specific
+  parent: docs/agents
+  paths:
+  - .env.example
+  - .pre-commit-config.yaml
+  - .pre-commit-hooks.yaml
+  - examples/images/gnome/AGENTS.md
+  - examples/images/gnome/GEMINI.md
+  - examples/images/gnome/docs/
+  - examples/preflight/AGENTS.md
+  - examples/preflight/GEMINI.md
+  - examples/preflight/skills/
+
+# Agent Instructions & Skills
+"2026-04-13 10:05:17 +0000":
+  branch: docs/agents
+  paths:
+  - AGENTS.md
+  - GEMINI.md
+  - docs/
+  - skills/
+  - .gitignore
+
+# Skaffold.yaml for CICD-Foundation
+"2025-08-29 07:51:48 +0000":
+  branch: feat/skaffold
+  paths:
+  - examples/images/android/android-studio/skaffold.yaml
+  - examples/images/android-open-source-project/code-oss/skaffold.yaml
+  - examples/images/android-open-source-project/repo-builder/skaffold.yaml
