@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
     curl && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
-  git clone https://github.com/google/android-cuttlefish && \
+  git clone --depth 1 --branch v1.55.0 https://github.com/google/android-cuttlefish && \
   /android-cuttlefish/tools/buildutils/build_packages.sh && \
   mkdir out && \
   cp /android-cuttlefish/cuttlefish-base_*_*64.deb /out && \

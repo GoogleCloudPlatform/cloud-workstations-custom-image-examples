@@ -17,8 +17,8 @@
 FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss
 
 # Install Xpra
-RUN curl http://xpra.org/gpg.asc > /etc/apt/keyrings/xpra.asc && \
-echo "deb [signed-by=/etc/apt/keyrings/xpra.asc] http://xpra.org/ noble main" > \
+RUN curl -fsSL https://xpra.org/gpg.asc > /etc/apt/keyrings/xpra.asc && \
+echo "deb [signed-by=/etc/apt/keyrings/xpra.asc] https://xpra.org/ noble main" > \
   /etc/apt/sources.list.d/xpra.list && \
   apt-get update && apt-get install -y \
   xpra \

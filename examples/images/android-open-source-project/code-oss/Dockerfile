@@ -28,9 +28,9 @@ RUN apt-get update && apt-get install -y \
     golang \
     curl && \
   # install libtinfo5
-  wget http://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb && \
+  wget https://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb && echo 'ab89265d8dd18bda6a29d7c796367d6d9f22a39a8fa83589577321e7caf3857b  libtinfo5_6.3-2ubuntu0.1_amd64.deb' | sha256sum -c - && \
   apt install ./libtinfo5_6.3-2ubuntu0.1_amd64.deb && \
-  git clone https://github.com/google/android-cuttlefish && \
+  git clone --depth 1 --branch v1.55.0 https://github.com/google/android-cuttlefish && \
   /bin/bash -c /android-cuttlefish/tools/buildutils/build_packages.sh && \
   mkdir out && \
   cp /android-cuttlefish/cuttlefish-base_*_*64.deb /out && \

@@ -44,6 +44,16 @@ else
     chown -R user:user $(dirname "${sdk_dir}")
   fi
 
+  # ${sdk_dir} lives on the persistent disk and is owned by the unprivileged
+  # user, so it may have been replaced with a symlink between restarts. Refuse
+  # to mount if the mountpoint is a symlink or resolves outside the user's
+  # Android tree, otherwise mount(2) would canonicalize it and root would
+  # overlay attacker-controlled content onto an arbitrary path (CWE-61).
+  if [[ -L "${sdk_dir}" ]] || [[ "$(realpath -m "${sdk_dir}")" != /home/user/Android/* ]]; then
+    echo "Refusing overlay mount: ${sdk_dir} is a symlink or resolves outside /home/user/Android" >&2
+    exit 1
+  fi
+
   echo "User downloaded SDKs will be persisted under ${user_sdk}"
   mount overlay -t overlay -o lowerdir="${image_sdk}",upperdir="${user_sdk}",workdir="${overlay_work_dir}" "${sdk_dir}"
 fi
