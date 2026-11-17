@@ -14,35 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#######################################################
-# Cuttlefish Builder Container
-#######################################################
-FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss AS cuttlefish-builder
-
-RUN apt-get update && apt-get install -y \
-    git \
-    devscripts \
-    equivs \
-    config-package-dev \
-    debhelper-compat \
-    golang \
-    curl && \
-  # install libtinfo5
-  wget https://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb && echo 'ab89265d8dd18bda6a29d7c796367d6d9f22a39a8fa83589577321e7caf3857b  libtinfo5_6.3-2ubuntu0.1_amd64.deb' | sha256sum -c - && \
-  apt install ./libtinfo5_6.3-2ubuntu0.1_amd64.deb && \
-  git clone --depth 1 --branch v1.55.0 https://github.com/google/android-cuttlefish && \
-  /bin/bash -c /android-cuttlefish/tools/buildutils/build_packages.sh && \
-  mkdir out && \
-  cp /android-cuttlefish/cuttlefish-base_*_*64.deb /out && \
-  cp /android-cuttlefish/cuttlefish-user_*_*64.deb /out && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/*
-
-#######################################################
-# End Cuttlefish Builder Container
-#######################################################
-
-# Main container
 FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss
 
 # Install repo and rsync
@@ -55,17 +26,19 @@ RUN apt-get update && apt-get install -y \
   repo version && \
   rsync --version
 
-# Install Cuttlefish from builder
-COPY --from=cuttlefish-builder /out /cuttlefish
-
-# Cuttlefish enables1 docker-specific behavior based on the existence of this file
+# Cuttlefish enables docker-specific behavior based on the existence of this file
 RUN touch /.dockerenv
 
-RUN cd /cuttlefish && \
+# Install Cuttlefish from Google Artifact Registry
+RUN apt-get update && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends curl ca-certificates && \
+  install -m 0755 -d /etc/apt/keyrings && \
+  curl -fsSL https://us-apt.pkg.dev/doc/repo-signing-key.gpg -o /etc/apt/keyrings/android-cuttlefish-artifacts.asc && \
+  chmod a+r /etc/apt/keyrings/android-cuttlefish-artifacts.asc && \
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/android-cuttlefish-artifacts.asc] https://us-apt.pkg.dev/projects/android-cuttlefish-artifacts android-cuttlefish main" \
+    > /etc/apt/sources.list.d/android-cuttlefish-artifacts.list && \
   apt-get update && \
-  apt install -y ./cuttlefish-base_*.deb ./cuttlefish-user_*.deb && \
-  cd / && \
-  rm -rf /cuttlefish && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends cuttlefish-base cuttlefish-user && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
